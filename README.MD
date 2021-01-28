@@ -215,15 +215,18 @@ The group has an event named “ttrpg” and one named “dinner”
 
 **Then** I should get an error for the address not existing and the event should not be planned.
 
-***Class Diagram will go here***
+## Class Diagram
+
+
 
 ## Scrum Roles
 
 - DevOps/Product Owner/Scrum Master: Brandan Jones  
 - Frontend Developer: Sri Lakshmi Sai Surapaneni
-- Integration Developer: Binod Dahal
+- Integration Developer 1: Binod Dahal
+- Integration Developer 2: Rahul Shakya
 
 ## Weekly Meeting
 
-Tuesday and Thursday at 8 PM on Discord link emailed to those who need iy.
+Tuesday and Thursday at 8 PM on Discord link emailed to those who need it.
 
