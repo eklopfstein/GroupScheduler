@@ -4,9 +4,10 @@
 
 Design Document  
 
-Elijah Klopfstein	
-Binod Dahal
-Sri Lakshmi Sai Surapaneni
+- Elijah Klopfstein	
+- Binod Dahal
+- Sri Lakshmi Sai Surapaneni
+- Rahul Shakya
 
 ## Introduction 
 
