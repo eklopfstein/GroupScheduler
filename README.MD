@@ -221,7 +221,7 @@ The group has an event named “ttrpg” and one named “dinner”
 
 ## Scrum Roles
 
-- DevOps/Product Owner/Scrum Master: Brandan Jones  
+- DevOps/Product Owner/Scrum Master: Elijah Klopfstein  
 - Frontend Developer: Sri Lakshmi Sai Surapaneni
 - Integration Developer 1: Binod Dahal
 - Integration Developer 2: Rahul Shakya
