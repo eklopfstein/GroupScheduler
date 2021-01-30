@@ -24,6 +24,8 @@ Use your Android device to create your own personal availability.  Join groups a
 
 [GroupScheduler Storyboard]( https://projects.invisionapp.com/freehand/document/BG7G4TDMJ)
 
+![Schedule](https://user-images.githubusercontent.com/43417850/106370814-b963c880-632b-11eb-93eb-2a8f0c17fb9b.png)
+
 ## Functional Requirements
 
 ### Requirement 100.0: Set Personal Availability
@@ -218,7 +220,7 @@ The group has an event named “ttrpg” and one named “dinner”
 
 ## Class Diagram
 
-
+![GroupSchedulerUML](https://user-images.githubusercontent.com/43417850/106370792-7dc8fe80-632b-11eb-8fa9-f2eb5b483819.jpg)
 
 ## Scrum Roles
 
