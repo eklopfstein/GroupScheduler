@@ -4,4 +4,117 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity" />
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:lineSpacingExtra="18sp"
+        android:text="@string/schedule"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#090909"
+        android:background="#c8c8c8"
+        android:padding="15dp"
+        android:textSize="24sp"
+        android:typeface="serif"
+        android:visibility="visible" />
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:lineSpacingExtra="18sp"
+        android:text="@string/events"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#090909"
+        android:padding="5dp"
+        android:textSize="20sp"
+        android:typeface="serif"
+        android:visibility="visible"
+        android:layout_marginTop="425dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:lineSpacingExtra="18sp"
+        android:text="@string/day_s"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#090909"
+        android:textSize="15sp"
+        android:typeface="serif"
+        android:visibility="visible"
+        android:layout_marginTop="475dp"
+        android:layout_marginEnd="300dp"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:lineSpacingExtra="18sp"
+        android:text="@string/times"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#090909"
+        android:textSize="15sp"
+        android:typeface="serif"
+        android:visibility="visible"
+        android:layout_marginTop="475dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="250dp"/>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:lineSpacingExtra="18sp"
+        android:text="@string/day_s2"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#090909"
+        android:textSize="15sp"
+        android:typeface="serif"
+        android:visibility="visible"
+        android:layout_marginTop="475dp"
+        android:layout_marginStart="215dp"
+        android:layout_marginEnd="120dp"/>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:lineSpacingExtra="18sp"
+        android:text="@string/times2"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#090909"
+        android:textSize="15sp"
+        android:typeface="serif"
+        android:visibility="visible"
+        android:layout_marginTop="475dp"
+        android:layout_marginStart="300dp"
+        android:layout_marginEnd="60dp"/>
+
+</FrameLayout>

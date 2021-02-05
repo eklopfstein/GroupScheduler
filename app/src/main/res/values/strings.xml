@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">GroupScheduler</string>
+    <string name="schedule">Schedule</string>
+    <string name="events">Events</string>
+    <string name="day_s">Day(s)</string>
+    <string name="times">Times</string>
+    <string name="day_s2">Day(s)</string>
+    <string name="times2">Times</string>
 </resources>
