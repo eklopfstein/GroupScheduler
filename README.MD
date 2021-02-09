@@ -4,9 +4,10 @@
 
 Design Document  
 
-Elijah Klopfstein	
-Binod Dahal
-Sri Lakshmi Sai Surapaneni
+- Elijah Klopfstein	
+- Binod Dahal
+- Sri Lakshmi Sai Surapaneni
+- Rahul Shakya
 
 ## Introduction 
 
@@ -22,6 +23,8 @@ Use your Android device to create your own personal availability.  Join groups a
 ## Storyboard
 
 [GroupScheduler Storyboard]( https://projects.invisionapp.com/freehand/document/BG7G4TDMJ)
+
+![Schedule](https://user-images.githubusercontent.com/43417850/106370814-b963c880-632b-11eb-93eb-2a8f0c17fb9b.png)
 
 ## Functional Requirements
 
@@ -215,15 +218,18 @@ The group has an event named “ttrpg” and one named “dinner”
 
 **Then** I should get an error for the address not existing and the event should not be planned.
 
-***Class Diagram will go here***
+## Class Diagram
+
+![GroupSchedulerUML](https://user-images.githubusercontent.com/43417850/106370792-7dc8fe80-632b-11eb-8fa9-f2eb5b483819.jpg)
 
 ## Scrum Roles
 
-- DevOps/Product Owner/Scrum Master: Brandan Jones  
+- DevOps/Product Owner/Scrum Master: Elijah Klopfstein  
 - Frontend Developer: Sri Lakshmi Sai Surapaneni
-- Integration Developer: Binod Dahal
+- Integration Developer 1: Binod Dahal
+- Integration Developer 2: Rahul Shakya
 
 ## Weekly Meeting
 
-Tuesday and Thursday at 8 PM on Discord link emailed to those who need iy.
+Tuesday and Thursday at 8 PM on Discord link emailed to those who need it.
 
