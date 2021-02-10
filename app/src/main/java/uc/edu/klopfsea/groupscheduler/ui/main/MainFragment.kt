@@ -28,10 +28,10 @@ class MainFragment : Fragment() {
         // TODO: Use the ViewModel
     }
     private fun saveUserGroups() {
-        var userGroups = UserGroupsDTO().apply {
-            groupName =  ; //Group name variable
-            groupPicture = ; // group pic variable
-            dateTime = textView3.text.toString();
+        var userGroups = UserGroupsDTO(groupName = "").apply {
+            groupName = ""  ; //Group name variable
+            groupPicture = false ; // group pic variable
+            dateTime = dateTime;//textView3.text.toString();
         }
         viewModel.save(userGroups)
     }
