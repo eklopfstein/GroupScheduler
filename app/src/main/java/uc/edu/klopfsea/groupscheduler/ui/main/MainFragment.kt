@@ -7,6 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import uc.edu.klopfsea.groupscheduler.R
+import uc.edu.klopfsea.groupscheduler.UserGroupsDTO
+import java.sql.Date
+import java.sql.Timestamp
 
 class MainFragment : Fragment() {
 
@@ -26,5 +29,13 @@ class MainFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         // TODO: Use the ViewModel
     }
-
+    private fun saveUserGroups() {
+        var userGroups = UserGroupsDTO(groupName = "",groupDay = "", groupPicture = false,dateTime = java.util.Date()).apply {
+            groupName = ""  ; //Group name variable
+            groupPicture = false ; // group pic variable
+            dateTime = dateTime;//textView3.text.toString();
+            groupDay = "";
+        }
+        viewModel.save(userGroups)
+    }
 }
