@@ -10,6 +10,9 @@ import uc.edu.klopfsea.groupscheduler.R
 import uc.edu.klopfsea.groupscheduler.UserGroupsDTO
 import java.sql.Date
 import java.sql.Timestamp
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.util.*
 
 class MainFragment : Fragment() {
 
@@ -27,13 +30,18 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel.UserGroupsDTO.observe(this, Observer{
+            userGroups -> actUserGroup.setAdapter()
+            //  might not have to do autocomplete,
+            // but still have to observe the DTO or dataclass.
+        })
         // TODO: Use the ViewModel
     }
     private fun saveUserGroups() {
-        var userGroups = UserGroupsDTO(groupName = "",groupDay = "", groupPicture = false,dateTime = java.util.Date()).apply {
+        var userGroups = UserGroupsDTO(groupName = "",groupDay = "", groupPicture = false,dateTime = LocalDateTime.now()).apply {
             groupName = ""  ; //Group name variable
             groupPicture = false ; // group pic variable
-            dateTime = dateTime;//textView3.text.toString();
+            dateTime = dateTime;//textView8.text.toString();
             groupDay = "";
         }
         viewModel.save(userGroups)
