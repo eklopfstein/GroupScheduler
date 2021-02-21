@@ -1,10 +1,31 @@
 <resources>
     <string name="app_name">GroupScheduler</string>
     <string name="schedule">Schedule</string>
+    <string name="addevent">Add Event</string>
     <string name="events">Events</string>
     <string name="days">Day(s)</string>
     <string name="times">Times</string>
     <string name="days2">Day(s)</string>
     <string name="times2">Times</string>
     <string name="todo">TODO</string>
+    <string name="month">Current Date</string>
+    <string name="radiobtndays">Day(s)</string>
+    <string name="radiobtndate">Date</string>
+    <string name="radiobtnafter">After</string>
+    <string name="radiobtnbefore">Before</string>
+    <string name="radiobtnallday">All Day</string>
+    <string name="or">OR</string>
+    <string name="checkboxmonday">M</string>
+    <string name="checkboxtuesday">T</string>
+    <string name="checkboxwednesday">W</string>
+    <string name="checkboxthursday">R</string>
+    <string name="checkboxfriday">F</string>
+    <string name="checkboxsaturday">S</string>
+    <string name="checkboxsunday">U</string>
+    <string name="period">Period</string>
+    <string name="timePeriod" />
+    <string-array name="period">
+        <item>AM</item>
+        <item>PM</item>
+    </string-array>
 </resources>

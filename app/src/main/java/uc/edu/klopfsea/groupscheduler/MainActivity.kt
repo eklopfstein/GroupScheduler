@@ -1,8 +1,10 @@
 package uc.edu.klopfsea.groupscheduler
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+
+import androidx.appcompat.app.AppCompatActivity
 import uc.edu.klopfsea.groupscheduler.ui.main.MainFragment
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -10,10 +12,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
 
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
+            if (savedInstanceState == null) {
+                supportFragmentManager.beginTransaction()
                     .replace(R.id.container, MainFragment.newInstance())
                     .commitNow()
+            }
         }
     }
-}
