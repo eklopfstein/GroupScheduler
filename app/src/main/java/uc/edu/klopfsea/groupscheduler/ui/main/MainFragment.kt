@@ -1,18 +1,23 @@
 package uc.edu.klopfsea.groupscheduler.ui.main
 
-import androidx.lifecycle.ViewModelProvider
+import android.content.Intent
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.TextView
+import androidx.lifecycle.Observer
+import kotlinx.android.synthetic.main.addevent_layout.*
+import kotlinx.android.synthetic.main.main_activity.*
 import uc.edu.klopfsea.groupscheduler.R
 import uc.edu.klopfsea.groupscheduler.UserGroupsDTO
-import java.sql.Date
-import java.sql.Timestamp
-import java.time.LocalDate
-import java.time.LocalDateTime
+import kotlinx.android.synthetic.main.main_fragment.*
 import java.util.*
+
+
 
 class MainFragment : Fragment() {
 
@@ -29,21 +34,27 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        viewModel.UserGroupsDTO.observe(this, Observer{
-            userGroups -> actUserGroup.setAdapter()
-            //  might not have to do autocomplete,
-            // but still have to observe the DTO or dataclass.
+        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel.userGroups.observe(viewLifecycleOwner, Observer {
+            userGroups -> txtDayValue.text
+            //this needs test
         })
+
+
+        btnAddEvent.setOnClickListener {
+            saveUserGroups()
+        }
+
         // TODO: Use the ViewModel
     }
     private fun saveUserGroups() {
-        var userGroups = UserGroupsDTO(groupName = "",groupDay = "", groupPicture = false,dateTime = LocalDateTime.now()).apply {
+        var userGroups = UserGroupsDTO().apply {
             groupName = ""  ; //Group name variable
             groupPicture = false ; // group pic variable
             dateTime = dateTime;//textView8.text.toString();
-            groupDay = "";
+            groupDay = txtDayValue.text.toString()
         }
         viewModel.save(userGroups)
     }
 }
+
