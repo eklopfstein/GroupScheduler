@@ -31,30 +31,5 @@ class MainFragment : Fragment() {
                               savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.main_fragment, container, false)
     }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        viewModel.userGroups.observe(viewLifecycleOwner, Observer {
-            userGroups -> txtDayValue.text
-            //this needs test
-        })
-
-
-        btnAddEvent.setOnClickListener {
-            saveUserGroups()
-        }
-
-        // TODO: Use the ViewModel
-    }
-    private fun saveUserGroups() {
-        var userGroups = UserGroupsDTO().apply {
-            groupName = ""  ; //Group name variable
-            groupPicture = false ; // group pic variable
-            dateTime = dateTime;//textView8.text.toString();
-            groupDay = txtDayValue.text.toString()
-        }
-        viewModel.save(userGroups)
-    }
 }
 

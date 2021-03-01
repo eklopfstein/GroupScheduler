@@ -1,7 +1,12 @@
 package uc.edu.klopfsea.groupscheduler.Events
 
-import com.google.type.DateTime
-import java.time.Duration
+import java.util.*
+import kotlin.collections.ArrayList
 
-class UserEvent(var userEventName : DateTime , var frequency : Duration) {
+class UserEvent(
+    var userEventName: Map<String, ArrayList<String>>,
+    var frequency: Date,
+    startTime: String,
+    duration: String
+) {
 }

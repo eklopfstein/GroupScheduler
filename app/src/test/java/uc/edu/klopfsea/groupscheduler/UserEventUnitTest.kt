@@ -5,8 +5,7 @@ import org.junit.Test
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
-import org.junit.rules.TestRule
-import uc.edu.klopfsea.groupscheduler.ui.main.MainViewModel
+import uc.edu.klopfsea.groupscheduler.Events.UserEvent
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.Map

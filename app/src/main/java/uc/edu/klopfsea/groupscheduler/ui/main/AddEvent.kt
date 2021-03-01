@@ -32,7 +32,7 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
         setContentView(R.layout.addevent_layout)
 
         spinner = findViewById(R.id.period)
-        btnAddEvent = findViewById(R.id.button)
+       btnAddEvent = findViewById(R.id.btnAddEvent)
         etDate = findViewById(R.id.editTextDate)
         btnClose = findViewById(R.id.btnClose)
         period.add("AM")
