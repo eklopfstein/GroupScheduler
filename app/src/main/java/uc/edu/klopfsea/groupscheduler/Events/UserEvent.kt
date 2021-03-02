@@ -1,12 +1,16 @@
 package uc.edu.klopfsea.groupscheduler.Events
 
-import java.util.*
-import kotlin.collections.ArrayList
-
 class UserEvent(
-    var userEventName: Map<String, ArrayList<String>>,
-    var frequency: Date,
-    startTime: String,
-    duration: String
+        var startDate: String,
+        var startTime: String,
+        var duration: String
 ) {
+    var frequency: Map<String, ArrayList<String>>? = null
+
+    /***
+     * A secondary constructor for repeating events
+     */
+    constructor(frequency: Map<String, ArrayList<String>>, startDate: String, startTime: String, duration: String) : this(startDate, startTime, duration) {
+        this.frequency = frequency
+    }
 }

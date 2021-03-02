@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         calendarView = findViewById(R.id.calendarView)
         recyclerView = findViewById(R.id.recyclerView)
-        layoutManager = GridLayoutManager(this,2)
+        layoutManager = GridLayoutManager(this, 2)
         recyclerView.layoutManager = layoutManager
 
         addEventPageButton.setOnClickListener {
@@ -37,10 +37,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-            if (savedInstanceState == null) {
-                supportFragmentManager.beginTransaction()
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
                     .replace(R.id.container, MainFragment.newInstance())
                     .commitNow()
-            }
         }
     }
+}

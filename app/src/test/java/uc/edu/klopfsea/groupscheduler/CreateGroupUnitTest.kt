@@ -1,10 +1,10 @@
 package uc.edu.klopfsea.groupscheduler
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import org.junit.Test
-
-import org.junit.Assert.*
+import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertTrue
 import org.junit.Rule
+import org.junit.Test
 import org.junit.rules.TestRule
 import uc.edu.klopfsea.groupscheduler.ui.main.MainViewModel
 import java.time.LocalDateTime
@@ -32,7 +32,7 @@ class CreateGroupUnitTest {
     }
 
     private fun whenUserCreateGroupNameDnDWithPicture() {
-        var newGroup = UserGroupsDTO("DnD",true,dateTime = LocalDateTime.now())
+        var newGroup = UserGroupsDTO("DnD", true, dateTime = LocalDateTime.now())
     }
 
 
@@ -50,6 +50,7 @@ class CreateGroupUnitTest {
         }
 
     }
+
     @Test
     fun CreateBlandGroupSuccessfully() {
         givenUserHasCreatedAccount()
@@ -58,7 +59,7 @@ class CreateGroupUnitTest {
     }
 
     private fun whenCreateGroupNameBlandWithoutPicture() {
-        var newGroup = UserGroupsDTO("Bland Group",false,dateTime = LocalDateTime.now())
+        var newGroup = UserGroupsDTO("Bland Group", false, dateTime = LocalDateTime.now())
 
     }
 
@@ -75,6 +76,7 @@ class CreateGroupUnitTest {
             assertTrue(groupCreated)
         }
     }
+
     @Test
     fun CreateGroupUnSuccessfully() {
         givenUserHasCreatedAccount()
@@ -83,7 +85,7 @@ class CreateGroupUnitTest {
     }
 
     private fun whenCreateGroupWithNothing() {
-        var newGroup = UserGroupsDTO("",false,dateTime = LocalDateTime.now())
+        var newGroup = UserGroupsDTO("", false, dateTime = LocalDateTime.now())
     }
 
     private fun thenGroupCreationIsFailed() {
