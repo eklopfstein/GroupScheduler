@@ -10,10 +10,13 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+
+        <!-- Schedule textview -->
         <TextView
             android:id="@+id/textView1"
             android:layout_width="412dp"
             android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
             android:background="#c8c8c8"
             android:layout_marginEnd="500dp"
             android:fontFamily="serif"
@@ -26,6 +29,8 @@
             android:typeface="serif"
             android:visibility="visible" />
     </LinearLayout>
+
+    <!-- calendar -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -38,6 +43,7 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
 
+    <!-- days textview -->
     <TextView
         android:id="@+id/textView3"
         android:layout_width="80dp"
@@ -55,6 +61,7 @@
         android:typeface="serif"
         android:visibility="visible" />
 
+    <!-- times textview -->
     <TextView
         android:id="@+id/textView4"
         android:layout_height="wrap_content"
@@ -72,6 +79,7 @@
         android:layout_marginEnd="250dp"
         android:layout_width="80dp" />
 
+    <!-- days textview -->
     <TextView
         android:id="@+id/textView5"
         android:layout_height="wrap_content"
@@ -89,6 +97,7 @@
         android:layout_marginEnd="125dp"
         android:layout_width="80dp" />
 
+    <!-- times textview -->
     <TextView
         android:id="@+id/textView6"
         android:layout_height="wrap_content"
@@ -140,6 +149,7 @@
                 android:background="#c8c8c8"
                 app:srcCompat="@drawable/ic_button2" />
 
+            <!-- addEvent imagebutton -->
             <ImageButton
                 android:id="@+id/addEventPageButton"
                 android:layout_width="93dp"
@@ -178,6 +188,7 @@
         </LinearLayout>
     </RelativeLayout>
 
+    <!-- Events textview -->
     <TextView
         android:id="@+id/textView2"
         android:layout_width="412dp"
@@ -195,6 +206,7 @@
         android:typeface="serif"
         android:visibility="visible" />
 
+    <!-- recyclerview to display events -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_marginTop="455dp"
