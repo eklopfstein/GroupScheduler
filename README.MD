@@ -1,4 +1,4 @@
-# GroupScheduler 
+# MyScheduler 
 
 ---
 
@@ -11,20 +11,19 @@ Design Document
 
 ## Introduction 
 
-Need to make plans for friends, family, coworkers? Having trouble find time to meet? GroupScheduler can help you:  
+Need to make plans for friends, family, coworkers? Having trouble find time to meet? MyScheduler can help you:  
 
 -	Record your weekly/reoccurring events.
 -	Record other days and/or times you are unavailable. 
--	Join groups with your friends, family, or coworkers.
--	See the whole groups availability and find your mutual free time!  
+-	Plan events based on your free time.
 
-Use your Android device to create your own personal availability.  Join groups and create events that have a certain amount of time needed.  And find days that you all have that amount of time available.   Receive alerts about upcoming events that you and your groups planned.  
+Use your Android device to create your own personal availability and create events that have a certain amount of time needed.  And find days that you have that amount of time available. Receive alerts about upcoming events that you and your groups planned.  
 
 ## Storyboard
 
-[GroupScheduler Storyboard]( https://projects.invisionapp.com/freehand/document/BG7G4TDMJ)
+[MyScheduler Storyboard](https://projects.invisionapp.com/prototype/cklpu6okn004apc01g570a32w/play)
 
-![Schedule](https://user-images.githubusercontent.com/43417850/106370814-b963c880-632b-11eb-93eb-2a8f0c17fb9b.png)
+![schedule](https://user-images.githubusercontent.com/43417850/109439848-06f05580-79fe-11eb-892b-c61a1c2b9dd6.PNG)
 
 ## Functional Requirements
 
@@ -64,163 +63,165 @@ As a user trying to make plans with groups, I need to set my own availability, b
 
 **Then** I should get an error because there would be no time after 12pm on the same day and have no new event created.
 
-### Requirement 101: Create a Group
+### Requirement 101: Calendar is color-coded for availability
 
 #### Scenario
 
-As a user trying to create groups to share our availability. 
+As a user with set availability.  
 
 #### Dependencies
 
 The users have set their personal availability.
-The users have created an account.
 
 #### Examples  
 
 2.1  
-**Given** the user has created an account. 
+**Given** the user has set their availability to be unavailable on Mondays. 
 
-**When** I try to create a group name “DnD” with the DnD logo as the group picture.
+**When** I look at the first Monday of the month.
 
-**Then** I will see a group created called “DnD” and my picture will be the group picture.
+**Then** I will see a red box behind the day. 
 
 2.2  
-**Given** the user has created an account.  
+**Given** the user has set their availability to be available on Wednesdays.
 
-**When** I try to create a group name “Bland Group” with no group picture.
+**When** I look at the first Wednesday of the month.
 
-**Then** I will see a group created called “Bland Group” with no group picture.
+**Then** I will see a green box behind the day. 
 
 2.3  
-**Given** the user has created an account.  
+**Given** the user has set their availability to be unavailable on Tuesdays 9 am to 4 pm. 
 
-**When** I try to create a group with no name or picture.
+**When** I look at the first Tuesday of the month.
 
-**Then** I will fail to create a group because names are required.
+**Then** I will see a yellow box behind the day. 
 
-### Requirement 102: Add users and friends to a group.
+### Requirement 102: Add an Event to be planned
 
 #### Scenario
 
-As a user in a group trying to add friends and other users to the group.
+As a user trying to create an event.
 
 #### Dependencies
 
 The users have created an account.
-The user has created the group.
-
-#### Assumptions
-
-The user has friends in the app.
+The user has made their schedule.
 
 #### Examples
 3.1  
 
-**Given** A group called “DnD” has been made.
-
-**When** I add my friend from the friends tab to the “DnD” group.
-
-**Then** I should the friend I added in the list of members for the “DnD” group.
- 
-3.2  
-**Given** A group called “DnD” has been made.
-
-**When** I add realemail@outlook.com to the “DnD” group.
-
-**Then** I should the user with realemail@outlook.com as their email added in the list of members for the “DnD” group.
-
-3.3  
-**Given** A group called “DnD” has been made.
-
-**When** I add emailatoutlook.com to the “DnD” group.
-
-**Then** I should get an error because this is not a real email address and there is no user with this as their name.
-
-### Requirement 103: Add an Event to a Group
-
-#### Scenario
-
-As a user in a group trying to an event to a group.
-
-#### Dependencies
-
-The users have created an account.
-The user has created the group.
-
-#### Examples
-4.1  
-
-**Given** In the group we play a ttrpg for 4 hours.
+**Given** I play a ttrpg for 4 hours.
 
 **When** I create an event named “ttrpg” that lasts 4 hours.
 
-**Then** I should see a new group event for “ttrpg” that lasts 4 hours.
+**Then** I should see a new event for “ttrpg” that lasts 4 hours.
 
-4.2  
-**Given** In the group we have dinner for 2 hours.
+3.2  
+**Given** I have dinner for 2 hours.
 
 **When** I create an event named “dinner” that lasts 2 hours.
 
-**Then** I should see a new group event for “dinner” that lasts 2 hours.
+**Then** I should see a new event for “dinner” that lasts 2 hours.
 
-4.3  
-**Given** I am in a group.
+3.3  
+**Given** I try to plan my dinner for longer than a day.
 
 **When** I create an event named “dinner” that lasts 25 hours.
 
 **Then** I should get an error for I cannot create events that last longer than a day and the event will not be created.
 
-4.3  
-**Given** I am in a group.
+3.3  
+**Given** I try to plan my dinner for no time.
 
 **When** I create an event named “dinner” that lasts 0 hours.
 
 **Then** I should get an error for I cannot create events that takes no time and the event will not be created.
 
-### Requirement 104: Plan an Event in a Group
+### Requirement 103: Plan an Event
 
 #### Scenario
 
-As a user in a group trying to plan an event.
+As a user trying to plan an event.
 
 #### Dependencies
 
 The users have created an account.
-The user has created the group.
-The group has added events to the group.
+The user has added events to be planned.
 
 #### Assumptions
 
-The group has an event named “ttrpg” and one named “dinner”
+The user has an event named “ttrpg” and one named “dinner”
 
 #### Examples
-5.1  
+4.1  
 
-**Given** Everyone is available at 12pm for at least 2 hours on 2/4/21.
+**Given** The user is available at 12pm for at least 2 hours on 2/4/21.
 
 **When** I plan the dinner event for 2/4/21, at 12 pm, at 1 West Corry Street Cincinnati, Ohio.
 
 **Then** I should see the zip code autocomplete to 45219 and will be able to plan the event.
 
-5.2  
+4.2  
 
-**Given** Everyone is available at 7pm for at least 4 hours on 1/2/21.
+**Given** The user is available at 7pm for at least 4 hours on 1/2/21.
 
 **When** I plan the ttrpg event for 1/2/21, at 5 pm, at 1 West Corry Street Cincinnati, Ohio.
 
 **Then** I should see the zip code autocomplete to 45219 and will be able to plan the event.
 
-5.3  
+4.3  
 
-**Given** Everyone is available at 7pm for at least 4 hours on 1/2/21.
+**Given** The user is available at 7pm for at least 4 hours on 1/2/21.
 
 **When** I plan the ttrpg event for 1/2/21, at 5 pm, at 324 dfsafsd Street Cincinnati, Ohio.
 
 **Then** I should get an error for the address not existing and the event should not be planned.
 
+### Requirement 104: Delete an Event
+
+#### Scenario
+
+As a user trying to delete an event.
+
+#### Dependencies
+
+The users have created an account.
+The user has added events to be planned.
+The user has planned events.
+
+#### Assumptions
+
+The user has an event named “ttrpg” and one named “dinner”
+The user has planned one of each
+
+#### Examples
+5.1  
+
+**Given** The user has planned “dinner” at 12pm on 2/4/21.
+
+**When** I hit delete on that planned event.
+
+**Then** I should see the event is no longer planned.
+
+5.2  
+
+**Given** The user has planned “ttrpg” at 7pm on 1/2/21.
+
+**When** I try to delete the “ttrpg” event type.
+
+**Then** I should get an error because you must delete all instances of the event before deleting the type.
+
+5.3  
+
+**Given** The user has planned “ttrpg” at 7pm on 1/2/21.
+
+**When** I hit delete on the planned event.
+
+**Then** I should see the event is no longer planned.
+
 ## Class Diagram
 
-![GroupSchedulerUML](https://user-images.githubusercontent.com/43417850/106370792-7dc8fe80-632b-11eb-8fa9-f2eb5b483819.jpg)
+![MySchedulerUML](https://user-images.githubusercontent.com/43417850/109440184-49fef880-79ff-11eb-8fb6-1be184b724b0.jpg)
 
 ## Scrum Roles
 
