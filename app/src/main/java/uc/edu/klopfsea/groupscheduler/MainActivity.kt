@@ -14,24 +14,28 @@ import uc.edu.klopfsea.groupscheduler.ui.main.MainFragment
 
 
 class MainActivity : AppCompatActivity() {
-
+    // late initialization
     lateinit var recyclerView: RecyclerView
     lateinit var layoutManager: RecyclerView.LayoutManager
     lateinit var calendarView: CalendarView
 
+    // creating empty ArrayList
     val eventList = arrayListOf<Event>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
 
+        // storing ID of the image button in a variable
         val addEventPageButton = findViewById<ImageButton>(R.id.addEventPageButton)
 
+        // By ID we can use each component which id is assign in xml file use findViewById()
         calendarView = findViewById(R.id.calendarView)
         recyclerView = findViewById(R.id.recyclerView)
         layoutManager = GridLayoutManager(this, 2)
         recyclerView.layoutManager = layoutManager
 
+        // operations to be performed when user tap on the addEventPageButton button
         addEventPageButton.setOnClickListener {
             val intent = Intent(this@MainActivity, AddEvent::class.java)
             startActivity(intent)
