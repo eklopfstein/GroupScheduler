@@ -16,6 +16,7 @@
             android:id="@+id/textView1"
             android:layout_width="412dp"
             android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
             android:background="#c8c8c8"
             android:layout_marginEnd="500dp"
             android:fontFamily="serif"
