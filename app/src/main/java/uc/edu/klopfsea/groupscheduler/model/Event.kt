@@ -1,5 +1,6 @@
 package uc.edu.klopfsea.groupscheduler.model
 
+// declaring a data class
 data class Event (
         var isDaysSet: Boolean = false,
         var isDateSet: Boolean = false,
@@ -9,9 +10,11 @@ data class Event (
         var period: String,
         var timeSpecification: String
 ){
+    // property declared in class body
     var id=0
     var month=0
     var year=0
+    // Sets the time
     fun setTime(t: Int){
         if (t==0)
             timeSpecification = "After $time $period"
@@ -20,6 +23,7 @@ data class Event (
         else
             timeSpecification = "All Day"
     }
+    // formats output
     fun getFormatedDate():String{
         var s = date.split('/')
         var str=""

@@ -15,11 +15,13 @@ import java.util.*
 import kotlin.concurrent.thread
 
 class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
+    // late initialization
     lateinit var spinner: Spinner
     lateinit var btnAddEvent: Button
     lateinit var btnClose: ImageButton
     lateinit var etDate: EditText
 
+    // creating empty ArrayList and setting default values
     var period = arrayListOf<String>()
     var periodSelected=0
     val days = arrayListOf<String>()
@@ -31,6 +33,7 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.addevent_layout)
 
+        // By ID we can use each component which id is assign in xml file use findViewById()
         spinner = findViewById(R.id.period)
         btnAddEvent = findViewById(R.id.button)
         etDate = findViewById(R.id.editTextDate)
@@ -38,21 +41,27 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
         period.add("AM")
         period.add("PM")
 
+        //Set Dropdown list and access the spinner
         val adapter = ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,period)
         adapter.setDropDownViewResource(R.layout.spinner_dropdown)
         spinner.adapter = adapter
         spinner.onItemSelectedListener = this
 
+        // operations to be performed when user tap on the btnAddEvent button
         btnAddEvent.setOnClickListener {
 
+            // converts the entered time to text and prints
             val time = findViewById<EditText>(R.id.editTextTime).text.toString()
             System.out.println(time)
             System.out.println(timeSpecification)
             if ((time.isNotEmpty() && timeSpecification!=-1) || timeSpecification==2){
                 if (findViewById<RadioButton>(R.id.radio_days).isChecked){
+                    // If no radio button checked in this radio group
                     if(days.isEmpty()){
                         Toast.makeText(this,"Days not selected",Toast.LENGTH_SHORT).show()
-                    }else{
+                    }
+                    // Get the instance of radio button using id
+                    else{
                         event.isDaysSet=true
                         event.days=setDays().toString()
                         System.out.println(event.days)
@@ -60,11 +69,14 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
                     }
                 } else if (findViewById<RadioButton>(R.id.radio_date).isChecked){
                     val date = etDate.text.toString()
-                    if (date.isNotEmpty() && isDateValid(date)){
+                    // Get the instance of radio button using id
+                            if (date.isNotEmpty() && isDateValid(date)){
                         event.isDateSet=true
                         event.date=date
                         eventAddSuccess(time)
-                    }else{
+                    }
+                    // If invalid date entered
+                    else{
                         Toast.makeText(this,"Invalid Date Format",Toast.LENGTH_SHORT).show()
                     }
                 }else{
@@ -76,16 +88,17 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
             }
         }
 
+        // it will exit the application when user tap on the btnClose button
         btnClose.setOnClickListener {
             onBackPressed()
         }
     }
-
+    // sets the time
     fun eventAddSuccess(time: String){
         event.time = time
         event.setTime(timeSpecification)
     }
-
+    // formats and prints date
     fun isDateValid(dateString: String): Boolean{
         try{
             val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
@@ -102,10 +115,12 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
         TODO("Not yet implemented")
     }
 
+    // retrieves the object from adapter
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         periodSelected = position
     }
 
+    // create a StringBuilder object to setDays for checkboxes
     fun setDays(): StringBuilder{
         var dayString  = StringBuilder("")
         if ("M" in days)
@@ -126,6 +141,7 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
         return dayString
     }
 
+    // Get radio group selected status and text using button click event
     fun onRadioButtonClicked(view: View){
         if(view is RadioButton){
             when(view.id){
@@ -176,6 +192,7 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
         }
     }
 
+    // Get checkbox selected status and text using button click event
     fun onCheckboxClicked(view: View){
         if (view is CheckBox){
             val checked = view.isChecked
