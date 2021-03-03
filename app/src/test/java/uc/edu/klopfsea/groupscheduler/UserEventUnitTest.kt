@@ -21,6 +21,7 @@ class UserEventUnitTest {
         var days: ArrayList<String> = ArrayList<String>()
         days.plus("M")
         days.plus("H")
+        // Source: https://www.techiedelight.com/initialize-map-kotlin/
         frequency = mapOf(
                 "weekly" to days
         )
