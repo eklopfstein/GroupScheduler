@@ -24,7 +24,7 @@ data class Event (
             timeSpecification = "All Day"
     }
     // formats output
-    fun getFormatedDate():String{
+   internal fun getFormatedDate():String{
         var s = date.split('/')
         var str = ""
         month = s[1].toInt()
