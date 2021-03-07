@@ -48,8 +48,8 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
 
             // converts the entered time to text and prints
             val time = findViewById<EditText>(R.id.editTextTime).text.toString()
-            System.out.println(time)
-            System.out.println(timeSpecification)
+            println(time)
+            println(timeSpecification)
             if ((time.isNotEmpty() && timeSpecification!=-1) || timeSpecification==2){
                 if (findViewById<RadioButton>(R.id.radio_days).isChecked){
                     // If no radio button checked in this radio group
@@ -60,7 +60,7 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
                     else{
                         event.isDaysSet=true
                         event.days=setDays().toString()
-                        System.out.println(event.days)
+                        println(event.days)
                         eventAddSuccess(time)
                     }
                 } else if (findViewById<RadioButton>(R.id.radio_date).isChecked) {
@@ -91,16 +91,16 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
     }
   
     // sets the time
-    fun eventAddSuccess(time: String){
+    private fun eventAddSuccess(time: String){
         event.time = time
         event.setTime(timeSpecification)
     }
     // formats and prints date
-    fun isDateValid(dateString: String): Boolean{
+    private fun isDateValid(dateString: String): Boolean{
         try{
             val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
             val date = formatter.parse(dateString)
-            System.out.println(date)
+            println(date)
         } catch (e: Exception) {
             return false
         }
@@ -118,9 +118,9 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
     }
 
     // create a StringBuilder object to setDays for checkboxes
-    fun setDays(): StringBuilder{
+    private fun setDays(): StringBuilder{
         var dayString  = StringBuilder("")
-        if ("M" in days)
+        /***if ("M" in days)
             dayString.append("M,")
         if ("T" in days)
             dayString.append("T,")
@@ -133,7 +133,10 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
         if ("S" in days)
             dayString.append("S,")
         if ("U" in days)
-            dayString.append("U,")
+            dayString.append("U,")***/
+        for(i in days){
+            dayString.append("$i, ")
+        }
         dayString.deleteCharAt(dayString.length - 1)
         return dayString
     }

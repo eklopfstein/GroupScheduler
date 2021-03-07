@@ -40,18 +40,18 @@ class UserEventUnitTest {
     @Test
     fun userEventRecurring_maintainsState() {
         // Ensures object persists
-        assertTrue(userEventRecurring.frequency!!.equals(frequency))
-        assertTrue(userEventRecurring.startDate.equals("2, 13 2021"))
-        assertTrue(userEventRecurring.startTime.equals("1445"))
-        assertTrue(userEventRecurring.duration.equals("0200"))
+        assertTrue(userEventRecurring.frequency!! == frequency)
+        assertTrue(userEventRecurring.startDate == "2, 13 2021")
+        assertTrue(userEventRecurring.startTime == "1445")
+        assertTrue(userEventRecurring.duration == "0200")
     }
 
     @Test
     fun userEventOneTime_maintainsState() {
         // Ensures object persists
-        assertTrue(userEvent.startDate.equals("2, 13 2021"))
-        assertTrue(userEvent.startTime.equals("1445"))
-        assertTrue(userEvent.duration.equals("0200"))
+        assertTrue(userEvent.startDate == "2, 13 2021")
+        assertTrue(userEvent.startTime == "1445")
+        assertTrue(userEvent.duration == "0200")
     }
 
 }
