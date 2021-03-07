@@ -50,30 +50,30 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
             val time = findViewById<EditText>(R.id.editTextTime).text.toString()
             System.out.println(time)
             System.out.println(timeSpecification)
-            if ((time.isNotEmpty() && timeSpecification!=-1) || timeSpecification==2){
-                if (findViewById<RadioButton>(R.id.radio_days).isChecked){
+            if ((time.isNotEmpty() && timeSpecification != -1) || timeSpecification == 2) {
+                if (findViewById<RadioButton>(R.id.radio_days).isChecked) {
                     // If no radio button checked in this radio group
-                    if(days.isEmpty()){
-                        Toast.makeText(this,"Days not selected",Toast.LENGTH_SHORT).show()
+                    if (days.isEmpty()) {
+                        Toast.makeText(this, "Days not selected", Toast.LENGTH_SHORT).show()
                     }
                     // Get the instance of radio button using id
-                    else{
-                        event.isDaysSet=true
-                        event.days=setDays().toString()
+                    else {
+                        event.isDaysSet = true
+                        event.days = setDays().toString()
                         System.out.println(event.days)
                         eventAddSuccess(time)
                     }
                 } else if (findViewById<RadioButton>(R.id.radio_date).isChecked) {
                     val date = etDate.text.toString()
                     // Get the instance of radio button using id
-                            if (date.isNotEmpty() && isDateValid(date)){
-                        event.isDateSet=true
-                        event.date=date
+                    if (date.isNotEmpty() && isDateValid(date)) {
+                        event.isDateSet = true
+                        event.date = date
                         eventAddSuccess(time)
                     }
                     // If invalid date entered
-                    else{
-                        Toast.makeText(this,"Invalid Date Format",Toast.LENGTH_SHORT).show()
+                    else {
+                        Toast.makeText(this, "Invalid Date Format", Toast.LENGTH_SHORT).show()
                     }
                 } else {
                     Toast.makeText(this, "Invalid Entry", Toast.LENGTH_SHORT).show()
