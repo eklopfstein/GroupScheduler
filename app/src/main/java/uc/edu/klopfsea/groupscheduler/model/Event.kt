@@ -16,12 +16,11 @@ data class Event (
     var year=0
     // Sets the time
     fun setTime(t: Int){
-        if (t==0)
-            timeSpecification = "After $time $period"
-        else if (t == 1)
-            timeSpecification = "Before $time $period"
-        else
-            timeSpecification = "All Day"
+        timeSpecification = when (t) {
+            0 -> "After $time $period"
+            1 -> "Before $time $period"
+            else -> "All Day"
+        }
     }
     // formats output
     fun getFormatedDate():String{
