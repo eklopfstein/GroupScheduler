@@ -20,9 +20,9 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
     // creating empty ArrayList and setting default values
     var period = arrayListOf<String>()
     var periodSelected = 0
-    val days = arrayListOf<String>()
+    private val days = arrayListOf<String>()
     var timeSpecification = -1
-    val event = Event(isDateSet = false, isDaysSet = false, days = "", date = "", time = "", period = "AM", timeSpecification = "")
+    private val event = Event(isDateSet = false, isDaysSet = false, days = "", date = "", time = "", period = "AM", timeSpecification = "")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
