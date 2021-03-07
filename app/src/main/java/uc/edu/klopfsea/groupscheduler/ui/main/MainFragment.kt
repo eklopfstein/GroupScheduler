@@ -10,15 +10,17 @@ import uc.edu.klopfsea.groupscheduler.R
 
 class MainFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = MainFragment()
-    }
-
     private lateinit var viewModel: MainViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.main_fragment, container, false)
     }
+    companion object {
+        fun newInstance() = MainFragment()
+    }
+
 }
+
+
 
