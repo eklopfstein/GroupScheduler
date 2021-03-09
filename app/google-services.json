@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "378183775681",
-    "project_id": "group-scheduler-info",
-    "storage_bucket": "group-scheduler-info.appspot.com"
+    "project_number": "1064895291099",
+    "project_id": "add-event-schedule",
+    "storage_bucket": "add-event-schedule.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:378183775681:android:5950b1f39f571fd112ab40",
+        "mobilesdk_app_id": "1:1064895291099:android:0e86715e7a6462bb84f6fe",
         "android_client_info": {
           "package_name": "uc.edu.klopfsea.groupscheduler"
         }
       },
       "oauth_client": [
         {
-          "client_id": "378183775681-324pngju654e8h2q9v4o02vk12nrum95.apps.googleusercontent.com",
+          "client_id": "1064895291099-fiq4r2t6kf34bbgqt2i3hv6cj3i5h51p.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyByGIKOucY7NvPxbOJqErwoZhs4dKrb8h0"
+          "current_key": "AIzaSyCahrgYOZdBszieG4bqlS6QzmLVobevYKw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "378183775681-324pngju654e8h2q9v4o02vk12nrum95.apps.googleusercontent.com",
+              "client_id": "1064895291099-fiq4r2t6kf34bbgqt2i3hv6cj3i5h51p.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

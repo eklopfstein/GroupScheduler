@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.View
 import android.view.Window
 import android.widget.*
+import androidx.lifecycle.ViewModelProviders
+import kotlinx.android.synthetic.main.addevent_layout.*
 import uc.edu.klopfsea.groupscheduler.R
 import uc.edu.klopfsea.groupscheduler.model.Event
 import java.text.SimpleDateFormat
@@ -26,6 +28,7 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.addevent_layout)
+
 
         spinner = findViewById(R.id.period)
         btnAddEvent = findViewById(R.id.btnAddEvent)
