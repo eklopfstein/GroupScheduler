@@ -1,6 +1,7 @@
 package uc.edu.klopfsea.groupscheduler.model
 
-data class Event(
+// declaring a data class
+data class Event (
         var isDaysSet: Boolean = false,
         var isDateSet: Boolean = false,
         var days: String,
@@ -8,20 +9,22 @@ data class Event(
         var time: String,
         var period: String,
         var timeSpecification: String
-) {
-    var id = 0
-    var month = 0
-    var year = 0
-    fun setTime(t: Int) {
-        if (t == 0)
+){
+    // property declared in class body
+    var id=0
+    var month=0
+    var year=0
+    // Sets the time
+    fun setTime(t: Int){
+        if (t==0)
             timeSpecification = "After $time $period"
         else if (t == 1)
             timeSpecification = "Before $time $period"
         else
             timeSpecification = "All Day"
     }
-
-    fun getFormatedDate(): String {
+    // formats output
+    fun getFormatedDate():String{
         var s = date.split('/')
         var str = ""
         month = s[1].toInt()
