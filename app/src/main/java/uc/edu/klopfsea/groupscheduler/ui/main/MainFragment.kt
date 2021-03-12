@@ -15,6 +15,7 @@ import uc.edu.klopfsea.groupscheduler.dto.Schedule
 
 class MainFragment : Fragment() {
 
+
     companion object {
         fun newInstance() = MainFragment()
     }
