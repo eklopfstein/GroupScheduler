@@ -18,7 +18,7 @@ data class Event (
     fun setTime(t: Int){
         if (t==0)
             timeSpecification = "After $time $period"
-        else if(t==1)
+        else if (t == 1)
             timeSpecification = "Before $time $period"
         else
             timeSpecification = "All Day"
@@ -26,19 +26,19 @@ data class Event (
     // formats output
     fun getFormatedDate():String{
         var s = date.split('/')
-        var str=""
-        month=s[1].toInt()
-        year=s[2].toInt()
-        str+=s[0]
-        val d=s[0].toInt()
-        if (d==1)
-            str+="st"
-        else if (d==2)
-            str+="nd"
-        else if (d==3)
-            str+="rd"
+        var str = ""
+        month = s[1].toInt()
+        year = s[2].toInt()
+        str += s[0]
+        val d = s[0].toInt()
+        if (d == 1)
+            str += "st"
+        else if (d == 2)
+            str += "nd"
+        else if (d == 3)
+            str += "rd"
         else
-            str+="th"
+            str += "th"
         return str
     }
 

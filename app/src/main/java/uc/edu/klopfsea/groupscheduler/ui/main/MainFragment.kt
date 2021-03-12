@@ -1,12 +1,17 @@
 package uc.edu.klopfsea.groupscheduler.ui.main
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
+import kotlinx.android.synthetic.main.addevent_layout.*
 import uc.edu.klopfsea.groupscheduler.R
+import kotlinx.android.synthetic.main.main_fragment.*
+import kotlinx.android.synthetic.main.main_activity.*
+import uc.edu.klopfsea.groupscheduler.dto.Schedule
+
 
 class MainFragment : Fragment() {
 
@@ -22,10 +27,6 @@ class MainFragment : Fragment() {
         return inflater.inflate(R.layout.main_fragment, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }
+

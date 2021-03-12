@@ -1,18 +1,16 @@
 package uc.edu.klopfsea.groupscheduler.ui.main
 
-import uc.edu.klopfsea.groupscheduler.R
 import android.app.Activity
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.view.Window
 import android.widget.*
+import androidx.lifecycle.ViewModelProviders
+import kotlinx.android.synthetic.main.addevent_layout.*
+import uc.edu.klopfsea.groupscheduler.R
 import uc.edu.klopfsea.groupscheduler.model.Event
-import uc.edu.klopfsea.groupscheduler.model.EventList
-import java.lang.StringBuilder
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.concurrent.thread
 
 class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
     // late initialization
@@ -23,10 +21,10 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
 
     // creating empty ArrayList and setting default values
     var period = arrayListOf<String>()
-    var periodSelected=0
+    var periodSelected = 0
     val days = arrayListOf<String>()
     var timeSpecification = -1
-    val event = Event(isDateSet = false, isDaysSet = false, days = "", date = "", time = "",period = "AM", timeSpecification = "")
+    val event = Event(isDateSet = false, isDaysSet = false, days = "", date = "", time = "", period = "AM", timeSpecification = "")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +33,7 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
 
         // By ID we can use each component which id is assign in xml file use findViewById()
         spinner = findViewById(R.id.period)
-        btnAddEvent = findViewById(R.id.button)
+        btnAddEvent = findViewById(R.id.btnAddEvent)
         etDate = findViewById(R.id.editTextDate)
         btnClose = findViewById(R.id.btnClose)
         period.add("AM")
@@ -67,7 +65,7 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
                         System.out.println(event.days)
                         eventAddSuccess(time)
                     }
-                } else if (findViewById<RadioButton>(R.id.radio_date).isChecked){
+                } else if (findViewById<RadioButton>(R.id.radio_date).isChecked) {
                     val date = etDate.text.toString()
                     // Get the instance of radio button using id
                             if (date.isNotEmpty() && isDateValid(date)){
@@ -79,11 +77,11 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
                     else{
                         Toast.makeText(this,"Invalid Date Format",Toast.LENGTH_SHORT).show()
                     }
-                }else{
-                    Toast.makeText(this,"Invalid Entry",Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Invalid Entry", Toast.LENGTH_SHORT).show()
                 }
 
-            }else{
+            } else {
                 Toast.makeText(this, "Invalid Entry 1", Toast.LENGTH_SHORT).show()
             }
         }
@@ -93,6 +91,7 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
             onBackPressed()
         }
     }
+  
     // sets the time
     fun eventAddSuccess(time: String){
         event.time = time
@@ -104,7 +103,7 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
             val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
             val date = formatter.parse(dateString)
             System.out.println(date)
-        }catch (e: Exception){
+        } catch (e: Exception) {
             return false
         }
         return true
@@ -137,10 +136,10 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
             dayString.append("S,")
         if ("U" in days)
             dayString.append("U,")
-        dayString.deleteCharAt(dayString.length-1)
+        dayString.deleteCharAt(dayString.length - 1)
         return dayString
     }
-
+          
     // Get radio group selected status and text using button click event
     fun onRadioButtonClicked(view: View){
         if(view is RadioButton){
@@ -158,37 +157,37 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
                     event.isDaysSet=true
                     event.isDateSet=false
                 }
-                R.id.radio_date->{
-                    view.isChecked=true
-                    findViewById<RadioButton>(R.id.radio_days).isChecked=false
-                    findViewById<EditText>(R.id.editTextDate).isEnabled=true
-                    findViewById<CheckBox>(R.id.monday).isEnabled=false
-                    findViewById<CheckBox>(R.id.tuesday).isEnabled=false
-                    findViewById<CheckBox>(R.id.wednesday).isEnabled=false
-                    findViewById<CheckBox>(R.id.thursday).isEnabled=false
-                    findViewById<CheckBox>(R.id.friday).isEnabled=false
-                    findViewById<CheckBox>(R.id.saturday).isEnabled=false
-                    findViewById<CheckBox>(R.id.sunday).isEnabled=false
-                    event.isDaysSet=false
-                    event.isDateSet=true
+                R.id.radio_date -> {
+                    view.isChecked = true
+                    findViewById<RadioButton>(R.id.radio_days).isChecked = false
+                    findViewById<EditText>(R.id.editTextDate).isEnabled = true
+                    findViewById<CheckBox>(R.id.monday).isEnabled = false
+                    findViewById<CheckBox>(R.id.tuesday).isEnabled = false
+                    findViewById<CheckBox>(R.id.wednesday).isEnabled = false
+                    findViewById<CheckBox>(R.id.thursday).isEnabled = false
+                    findViewById<CheckBox>(R.id.friday).isEnabled = false
+                    findViewById<CheckBox>(R.id.saturday).isEnabled = false
+                    findViewById<CheckBox>(R.id.sunday).isEnabled = false
+                    event.isDaysSet = false
+                    event.isDateSet = true
                 }
-                R.id.radio_after->{
+                R.id.radio_after -> {
                     timeSpecification = 0
-                    findViewById<EditText>(R.id.editTextTime).isEnabled=true
-                    findViewById<Spinner>(R.id.period).isEnabled=true
+                    findViewById<EditText>(R.id.editTextTime).isEnabled = true
+                    findViewById<Spinner>(R.id.period).isEnabled = true
                 }
-                R.id.radio_before->{
+                R.id.radio_before -> {
                     timeSpecification = 1
-                    findViewById<EditText>(R.id.editTextTime).isEnabled=true
-                    findViewById<Spinner>(R.id.period).isEnabled=true
+                    findViewById<EditText>(R.id.editTextTime).isEnabled = true
+                    findViewById<Spinner>(R.id.period).isEnabled = true
                 }
-                R.id.radio_allday->{
+                R.id.radio_allday -> {
                     timeSpecification = 2
-                    findViewById<EditText>(R.id.editTextTime).isEnabled=false
-                    findViewById<Spinner>(R.id.period).isEnabled=false
+                    findViewById<EditText>(R.id.editTextTime).isEnabled = false
+                    findViewById<Spinner>(R.id.period).isEnabled = false
                 }
             }
-            view.isChecked=true
+            view.isChecked = true
         }
     }
 
@@ -196,66 +195,66 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
     fun onCheckboxClicked(view: View){
         if (view is CheckBox){
             val checked = view.isChecked
-            when(view.id){
-                R.id.monday->{
-                    if (checked){
+            when (view.id) {
+                R.id.monday -> {
+                    if (checked) {
                         if ("M" !in days)
                             days.add("M")
-                    }else if (days.isNotEmpty()){
+                    } else if (days.isNotEmpty()) {
                         if ("M" in days)
                             days.remove("M")
                     }
                 }
-                R.id.tuesday->{
-                    if (checked){
+                R.id.tuesday -> {
+                    if (checked) {
                         if ("T" !in days)
                             days.add("T")
-                    }else if (days.isNotEmpty()){
+                    } else if (days.isNotEmpty()) {
                         if ("T" in days)
                             days.remove("T")
                     }
                 }
-                R.id.wednesday->{
-                    if (checked){
+                R.id.wednesday -> {
+                    if (checked) {
                         if ("W" !in days)
                             days.add("W")
-                    }else if (days.isNotEmpty()){
+                    } else if (days.isNotEmpty()) {
                         if ("W" in days)
                             days.remove("W")
                     }
                 }
-                R.id.thursday->{
-                    if (checked){
+                R.id.thursday -> {
+                    if (checked) {
                         if ("R" !in days)
                             days.add("R")
-                    }else if (days.isNotEmpty()){
+                    } else if (days.isNotEmpty()) {
                         if ("R" in days)
                             days.remove("R")
                     }
                 }
-                R.id.friday->{
-                    if (checked){
+                R.id.friday -> {
+                    if (checked) {
                         if ("F" !in days)
                             days.add("F")
-                    }else if (days.isNotEmpty()){
+                    } else if (days.isNotEmpty()) {
                         if ("F" in days)
                             days.remove("F")
                     }
                 }
-                R.id.saturday->{
-                    if (checked){
+                R.id.saturday -> {
+                    if (checked) {
                         if ("S" !in days)
                             days.add("S")
-                    }else if (days.isNotEmpty()){
+                    } else if (days.isNotEmpty()) {
                         if ("S" in days)
                             days.remove("S")
                     }
                 }
-                R.id.sunday->{
-                    if (checked){
+                R.id.sunday -> {
+                    if (checked) {
                         if ("U" !in days)
                             days.add("U")
-                    }else if (days.isNotEmpty()){
+                    } else if (days.isNotEmpty()) {
                         if ("U" in days)
                             days.remove("U")
                     }

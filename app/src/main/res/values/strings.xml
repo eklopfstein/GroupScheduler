@@ -24,6 +24,8 @@
     <string name="checkboxsunday">U</string>
     <string name="period">Period</string>
     <string name="timePeriod" />
+    <string name="dd_mm_yyyy">DD/MM/YYYY</string>
+    <string name="hh_mm">HH:MM</string>
     <string-array name="period">
         <item>AM</item>
         <item>PM</item>
