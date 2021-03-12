@@ -10,6 +10,7 @@ import uc.edu.klopfsea.groupscheduler.R
 
 class MainFragment : Fragment() {
 
+
     companion object {
         fun newInstance() = MainFragment()
     }
