@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#c8c8c8">
+
+        <!-- Add Event textview -->
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:background="#c8c8c8"
+            android:layout_marginEnd="500dp"
+            android:fontFamily="serif"
+            android:lineSpacingExtra="18sp"
+            android:text="@string/addevent"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#090909"
+            android:padding="15dp"
+            android:typeface="serif"
+            android:visibility="visible"/>
+
+        <!-- close imagebutton -->
+        <ImageButton
+            android:id="@+id/btnClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close"
+            android:paddingRight="15dp"
+            android:background="#c8c8c8"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <!-- radio buttons for days and date -->
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RadioButton
+                android:id="@+id/radio_days"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radiobtndays"
+                android:onClick="onRadioButtonClicked"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <!-- checkboxes for days -->
+                <CheckBox android:id="@+id/monday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/checkboxmonday"
+                    android:enabled="false"
+                    android:onClick="onCheckboxClicked"/>
+                <CheckBox android:id="@+id/tuesday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/checkboxtuesday"
+                    android:enabled="false"
+                    android:onClick="onCheckboxClicked"/>
+                <CheckBox android:id="@+id/wednesday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/checkboxwednesday"
+                    android:enabled="false"
+                    android:onClick="onCheckboxClicked"/>
+                <CheckBox android:id="@+id/thursday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/checkboxthursday"
+                    android:enabled="false"
+                    android:onClick="onCheckboxClicked"/>
+                <CheckBox android:id="@+id/friday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/checkboxfriday"
+                    android:enabled="false"
+                    android:onClick="onCheckboxClicked"/>
+                <CheckBox android:id="@+id/saturday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/checkboxsaturday"
+                    android:enabled="false"
+                    android:onClick="onCheckboxClicked"/>
+                <CheckBox android:id="@+id/sunday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/checkboxsunday"
+                    android:enabled="false"
+                    android:onClick="onCheckboxClicked"/>
+            </LinearLayout>
+
+            <!-- OR textview -->
+            <TextView
+                android:id="@+id/OR"
+                android:layout_width="412dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="500dp"
+                android:fontFamily="serif"
+                android:text="@string/or"
+                android:textAlignment="center"
+                android:textColor="#090909"
+                android:typeface="serif"
+                android:visibility="visible" />
+
+            <RadioButton
+                android:id="@+id/radio_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radiobtndate"
+                android:onClick="onRadioButtonClicked"/>
+
+            <!-- EditText to enter date -->
+            <EditText
+                android:id="@+id/editTextDate"
+                android:layout_width="120dp"
+                android:layout_height="35dp"
+                android:background="#22000000"
+                android:layout_marginStart="15dp"
+                android:hint="@string/dd_mm_yyyy"
+                android:ems="5"
+                android:enabled="false"
+                android:inputType="date" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <!-- View to divide two radio groups -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000"
+        android:layout_marginTop="5dp"
+        android:typeface="serif"
+        android:fontFamily="serif" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <!-- radio buttons for after, before and all day -->
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/radio_after"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radiobtnafter"
+                android:onClick="onRadioButtonClicked"/>
+            <RadioButton
+                android:id="@+id/radio_before"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radiobtnbefore"
+                android:onClick="onRadioButtonClicked"/>
+            <RadioButton
+                android:id="@+id/radio_allday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radiobtnallday"
+                android:onClick="onRadioButtonClicked"/>
+        </RadioGroup>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <!-- EditText to enter time -->
+        <EditText
+            android:id="@+id/editTextTime"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginStart="80dp"
+            android:background="#22000000"
+            android:ems="5"
+            android:hint="@string/hh_mm"
+            android:inputType="time"
+            android:textAlignment="center" />
+
+        <!-- Spinner to select the period of time -->
+        <Spinner
+            android:id="@+id/period"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="50dp"
+            android:prompt="@string/timePeriod" />
+    </LinearLayout>
+
+    <!-- AddEvent button -->
+    <Button
+        android:id="@+id/btnAddEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="@string/addevent" />
+
+</LinearLayout>

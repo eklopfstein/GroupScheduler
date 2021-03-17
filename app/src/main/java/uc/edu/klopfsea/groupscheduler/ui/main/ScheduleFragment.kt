@@ -1,52 +1,36 @@
 package uc.edu.klopfsea.groupscheduler.ui.main
 
+import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CalendarView
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.addevent_layout.*
+import kotlinx.android.synthetic.main.schedule_fragment.*
 import uc.edu.klopfsea.groupscheduler.R
-import kotlinx.android.synthetic.main.main_fragment.*
-import kotlinx.android.synthetic.main.main_activity.*
 import uc.edu.klopfsea.groupscheduler.dto.Schedule
-import uc.edu.klopfsea.groupscheduler.model.Event
 
-
-class MainFragment : Fragment() {
-
-    lateinit var recyclerView: RecyclerView
-    lateinit var layoutManager: RecyclerView.LayoutManager
-    lateinit var calendarView: CalendarView
-
-    val eventList = arrayListOf<Event>()
+class ScheduleFragment : Fragment() {
 
     companion object {
-        fun newInstance() = MainFragment()
+        fun newInstance() = ScheduleFragment()
     }
 
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: ScheduleViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+                              savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.schedule_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-
-        //the button should be btnAddEvent
-        //btnAddEvent.setOnClickListener {
-        //    saveSchedule()
-        //}
+        viewModel = ViewModelProvider(this).get(ScheduleViewModel::class.java)
+        btnAddEvent.setOnClickListener {
+            saveSchedule()
+        }
     }
-
-    /*private fun saveSchedule() {
+    private fun saveSchedule() {
         var schedule = Schedule().apply {
             if (radio_days.isChecked) {
                 if (monday.isChecked) {
@@ -76,7 +60,6 @@ class MainFragment : Fragment() {
             }
             time = editTextTime.text.toString()
         }
-    }*/
-
+        viewModel.save(schedule)
+    }
 }
-
