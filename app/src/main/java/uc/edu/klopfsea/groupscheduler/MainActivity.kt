@@ -2,9 +2,6 @@ package uc.edu.klopfsea.groupscheduler
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.GestureDetector
-import android.view.MotionEvent
-import android.widget.CalendarView
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
@@ -23,7 +20,6 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var recyclerView: RecyclerView
     lateinit var layoutManager: RecyclerView.LayoutManager
-    lateinit var calendarView: CalendarView
 
     val eventList = arrayListOf<Event>()
 
@@ -33,8 +29,9 @@ class MainActivity : AppCompatActivity() {
 
         val addEventPageButton = findViewById<ImageButton>(R.id.addEventPageButton)
 
-        calendarView = findViewById(R.id.calendarView)
-        recyclerView = findViewById(R.id.recyclerView)
+        // By ID we can use each component which id is assign in xml file use findViewById()
+
+        recyclerView = findViewById(R.id.eventsRecyclerView)
         layoutManager = GridLayoutManager(this, 2)
         recyclerView.layoutManager = layoutManager
 

@@ -7,12 +7,7 @@ import android.view.ViewGroup
 import android.widget.CalendarView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.addevent_layout.*
 import uc.edu.klopfsea.groupscheduler.R
-import kotlinx.android.synthetic.main.main_fragment.*
-import kotlinx.android.synthetic.main.main_activity.*
 import uc.edu.klopfsea.groupscheduler.dto.Schedule
 import uc.edu.klopfsea.groupscheduler.model.Event
 
@@ -24,6 +19,7 @@ class MainFragment : Fragment() {
     lateinit var calendarView: CalendarView
 
     val eventList = arrayListOf<Event>()
+
 
     companion object {
         fun newInstance() = MainFragment()
