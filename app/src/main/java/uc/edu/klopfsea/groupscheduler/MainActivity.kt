@@ -2,7 +2,6 @@ package uc.edu.klopfsea.groupscheduler
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.CalendarView
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -17,7 +16,6 @@ class MainActivity : AppCompatActivity() {
     // late initialization
     lateinit var recyclerView: RecyclerView
     lateinit var layoutManager: RecyclerView.LayoutManager
-    lateinit var calendarView: CalendarView
 
     // creating empty ArrayList
     val eventList = arrayListOf<Event>()
@@ -30,8 +28,8 @@ class MainActivity : AppCompatActivity() {
         val addEventPageButton = findViewById<ImageButton>(R.id.addEventPageButton)
 
         // By ID we can use each component which id is assign in xml file use findViewById()
-        calendarView = findViewById(R.id.calendarView)
-        recyclerView = findViewById(R.id.recyclerView)
+
+        recyclerView = findViewById(R.id.eventsRecyclerView)
         layoutManager = GridLayoutManager(this, 2)
         recyclerView.layoutManager = layoutManager
 

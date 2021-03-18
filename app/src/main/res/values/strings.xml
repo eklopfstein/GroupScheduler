@@ -26,6 +26,11 @@
     <string name="timePeriod" />
     <string name="dd_mm_yyyy">DD/MM/YYYY</string>
     <string name="hh_mm">HH:MM</string>
+    <string name="name">Name</string>
+    <string name="date">Date</string>
+    <string name="plannedEvents">Planned Events</string>
+    <string name="mySchedule">My Schedule</string>
+    <string name="timeNeeded">Time Needed</string>
     <string-array name="period">
         <item>AM</item>
         <item>PM</item>
