@@ -18,27 +18,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var detector: GestureDetectorCompat
 
-    lateinit var recyclerView: RecyclerView
-    lateinit var layoutManager: RecyclerView.LayoutManager
-
-    val eventList = arrayListOf<Event>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
-
-        val addEventPageButton = findViewById<ImageButton>(R.id.addEventPageButton)
-
-        // By ID we can use each component which id is assign in xml file use findViewById()
-
-        recyclerView = findViewById(R.id.eventsRecyclerView)
-        layoutManager = GridLayoutManager(this, 2)
-        recyclerView.layoutManager = layoutManager
-
-        addEventPageButton.setOnClickListener {
-            val intent = Intent(this@MainActivity, AddEvent::class.java)
-            startActivity(intent)
-        }
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
