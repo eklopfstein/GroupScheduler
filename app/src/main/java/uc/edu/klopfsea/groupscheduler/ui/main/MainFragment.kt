@@ -1,12 +1,16 @@
 package uc.edu.klopfsea.groupscheduler.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CalendarView
+import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import uc.edu.klopfsea.groupscheduler.R
 import uc.edu.klopfsea.groupscheduler.dto.Schedule
 import uc.edu.klopfsea.groupscheduler.model.Event
@@ -14,9 +18,9 @@ import uc.edu.klopfsea.groupscheduler.model.Event
 
 class MainFragment : Fragment() {
 
-    lateinit var recyclerView: RecyclerView
-    lateinit var layoutManager: RecyclerView.LayoutManager
-    lateinit var calendarView: CalendarView
+   // lateinit var eventsRecyclerView: RecyclerView
+   // lateinit var layoutManager: RecyclerView.LayoutManager
+   // lateinit var calendarView: CalendarView
 
     val eventList = arrayListOf<Event>()
 
@@ -29,7 +33,27 @@ class MainFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
+
+       /* val addEventPageButton = findViewById<ImageButton>(R.id.addEventPageButton)
+
+        // By ID we can use each component which id is assign in xml file use findViewById()
+
+        eventsRecyclerView = findViewById(R.id.eventsRecyclerView)
+        layoutManager = GridLayoutManager(this, 2)
+        eventsRecyclerView.layoutManager = layoutManager
+
+
+        addEventPageButton.setOnClickListener {
+            val intent = Intent(this@MainFragment, AddEvent::class.java)
+            startActivity(intent)
+        }*/
+
         return inflater.inflate(R.layout.main_fragment, container, false)
+    }
+
+
+    private fun Intent(mainFragment: MainFragment, java: Class<AddEvent>): Intent? {
+        TODO("Not yet implemented")
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
