@@ -8,7 +8,8 @@ import androidx.core.view.GestureDetectorCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import uc.edu.klopfsea.groupscheduler.model.Event
-
+import android.view.GestureDetector
+import android.view.MotionEvent
 import uc.edu.klopfsea.groupscheduler.ui.main.AddEvent
 import uc.edu.klopfsea.groupscheduler.ui.main.MainFragment
 import uc.edu.klopfsea.groupscheduler.ui.main.ScheduleFragment
