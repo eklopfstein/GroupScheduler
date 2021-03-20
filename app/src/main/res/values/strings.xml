@@ -24,6 +24,7 @@
     <string name="checkboxsunday">U</string>
     <string name="period">Period</string>
     <string name="timePeriod" />
+    <string name="notes" />
     <string name="dd_mm_yyyy">DD/MM/YYYY</string>
     <string name="hh_mm">HH:MM</string>
     <string name="name">Name</string>
@@ -31,6 +32,17 @@
     <string name="plannedEvents">Planned Events</string>
     <string name="mySchedule">My Schedule</string>
     <string name="timeNeeded">Time Needed</string>
+    <string name="newevent">New Event</string>
+    <string name="eventname">Event Name</string>
+    <string name="min">min</string>
+    <string name="hr">hr</string>
+    <string name="planevent">Plan Event</string>
+    <string name="event">Event</string>
+    <string name="time">Time</string>
+    <string name="address">Address</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="zip">Zip</string>
     <string-array name="period">
         <item>AM</item>
         <item>PM</item>
