@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="590dp"
+    tools:context=".ui.main.PlanEvent">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -40,15 +41,15 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
         android:orientation="horizontal">
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="90dp"
             android:fontFamily="serif"
             android:lineSpacingExtra="18sp"
             android:text="@string/event"
@@ -65,20 +66,20 @@
             android:layout_height="35dp"
             android:background="#22000000"
             android:layout_marginStart="94dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="90dp"
             android:prompt="@string/eventname" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
         android:orientation="horizontal">
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="140dp"
             android:fontFamily="serif"
             android:lineSpacingExtra="18sp"
             android:text="@string/eventname"
@@ -94,7 +95,7 @@
             android:layout_width="120dp"
             android:layout_height="35dp"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="140dp"
             android:background="#22000000"
             android:hint="@string/dd_mm_yyyy"
             android:ems="5"
@@ -103,15 +104,15 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
         android:orientation="horizontal">
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="190dp"
             android:fontFamily="serif"
             android:lineSpacingExtra="18sp"
             android:text="@string/time"
@@ -127,7 +128,7 @@
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_marginStart="105dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="190dp"
             android:background="#22000000"
             android:ems="5"
             android:hint="@string/hh_mm"
@@ -139,20 +140,20 @@
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="190dp"
             android:prompt="@string/timePeriod" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="275dp"
         android:orientation="horizontal">
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="240dp"
             android:fontFamily="serif"
             android:lineSpacingExtra="18sp"
             android:text="@string/address"
@@ -168,7 +169,8 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_marginStart="45dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginTop="240dp"
             android:background="#22000000"
             android:ems="10"
             android:inputType="textPersonName"
@@ -176,15 +178,15 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="330dp"
         android:orientation="horizontal">
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="290dp"
             android:fontFamily="serif"
             android:lineSpacingExtra="18sp"
             android:text="@string/city"
@@ -200,25 +202,23 @@
             android:layout_width="120dp"
             android:layout_height="35dp"
             android:layout_marginStart="110dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="290dp"
             android:background="#22000000"
             android:ems="10"
             android:inputType="textPersonName"
             android:prompt="@string/city" />
-
-
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="375dp"
         android:orientation="horizontal">
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="345dp"
             android:fontFamily="serif"
             android:lineSpacingExtra="18sp"
             android:text="@string/state"
@@ -234,21 +234,21 @@
             android:layout_width="80dp"
             android:layout_height="35dp"
             android:layout_marginStart="125dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="340dp"
             android:background="#22000000"
             android:prompt="@string/state" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="430dp"
         android:orientation="horizontal">
         <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="400dp"
             android:fontFamily="serif"
             android:lineSpacingExtra="18sp"
             android:text="@string/zip"
@@ -264,22 +264,22 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="120dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="400dp"
             android:background="#22000000"
             android:ems="10"
             android:inputType="textPostalAddress" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="520dp"
         android:orientation="horizontal">
         <TextView
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="425dp"
             android:fontFamily="serif"
             android:lineSpacingExtra="18sp"
             android:text="@string/address"
@@ -295,19 +295,26 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginStart="45dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginTop="440dp"
             android:background="#22000000"
             android:ems="10"
             android:inputType="textPersonName"
             android:prompt="@string/notes" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnAddEvent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:text="@string/addevent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="710dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnAddEvent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="200dp"
+            android:layout_marginStart="150dp"
+            android:text="@string/addevent" />
+    </LinearLayout>
 
-</LinearLayout>
+</FrameLayout>
