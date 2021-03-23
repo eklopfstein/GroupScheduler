@@ -6,7 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import androidx.lifecycle.Observer
+import kotlinx.android.synthetic.main.plan_event_fragment.*
 import uc.edu.klopfsea.groupscheduler.R
+import uc.edu.klopfsea.groupscheduler.dto.PlannedEvent
 
 class PlanEvent : Fragment() {
 
@@ -26,7 +30,26 @@ class PlanEvent : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(PlanEventViewModel::class.java)
-        // TODO: Use the ViewModel
+        viewModel.addresses.observe(viewLifecycleOwner, Observer {
+            addresses -> editTextTextPostalAddress.setAdapter(ArrayAdapter(context!!, R.layout.support_simple_spinner_dropdown_item,addresses))
+        })
+        btnAddEvent.setOnClickListener {
+            savePlannedEvent()
+        }
+    }
+
+    private fun savePlannedEvent() {
+        var plannedEvent = PlannedEvent()
+        with(plannedEvent) {
+            eventName = planeventname.toString()
+            eventDate = editTextDate.text.toString()
+            plannedTime = editTextTime.text.toString()
+            notes = edtnotes.text.toString()
+            address = edtAddress.text.toString()
+            city = edtCity.text.toString()
+            state = edtState.toString()
+        }
+        viewModel.save(plannedEvent)
     }
 
 }
