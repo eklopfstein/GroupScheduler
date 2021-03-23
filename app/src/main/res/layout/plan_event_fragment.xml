@@ -165,7 +165,7 @@
             android:visibility="visible" />
 
         <EditText
-            android:id="@+id/address"
+            android:id="@+id/edtAddress"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_marginStart="45dp"
@@ -198,7 +198,7 @@
             android:visibility="visible" />
 
         <EditText
-            android:id="@+id/city"
+            android:id="@+id/edtCity"
             android:layout_width="120dp"
             android:layout_height="35dp"
             android:layout_marginStart="110dp"
@@ -230,7 +230,7 @@
             android:visibility="visible" />
 
         <Spinner
-            android:id="@+id/state"
+            android:id="@+id/edtState"
             android:layout_width="80dp"
             android:layout_height="35dp"
             android:layout_marginStart="125dp"
@@ -259,9 +259,9 @@
             android:typeface="serif"
             android:visibility="visible" />
 
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/editTextTextPostalAddress"
-            android:layout_width="120dp"
+            android:layout_width="138dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="120dp"
             android:layout_marginTop="400dp"
@@ -291,7 +291,7 @@
             android:visibility="visible" />
 
         <EditText
-            android:id="@+id/notes"
+            android:id="@+id/edtnotes"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginStart="45dp"

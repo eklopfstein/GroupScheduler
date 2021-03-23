@@ -2,16 +2,17 @@ package uc.edu.klopfsea.groupscheduler
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.GestureDetector
+import android.view.MotionEvent
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import uc.edu.klopfsea.groupscheduler.model.Event
-import android.view.GestureDetector
-import android.view.MotionEvent
 import uc.edu.klopfsea.groupscheduler.ui.main.AddEvent
 import uc.edu.klopfsea.groupscheduler.ui.main.MainFragment
+import uc.edu.klopfsea.groupscheduler.ui.main.PlanEvent
 import uc.edu.klopfsea.groupscheduler.ui.main.ScheduleFragment
 
 
@@ -82,16 +83,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onSwipeTop() {
-        TODO("Not yet implemented")
+       /* supportFragmentManager.beginTransaction()
+                .replace(R.id.container, ScheduleFragment.newInstance())
+                .commitNow()*/
     }
 
     private fun onSwipeLeft() {
-        TODO("Not yet implemented")
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, PlanEvent.newInstance())
+            .commitNow()
     }
 
     private fun onSwipeRight() {
-            supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, ScheduleFragment.newInstance())
-                    .commitNow()
+
     }
+
 }
