@@ -8,6 +8,8 @@ import android.widget.CalendarView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.main_fragment.*
+import uc.edu.klopfsea.groupscheduler.MainActivity
 import uc.edu.klopfsea.groupscheduler.R
 import uc.edu.klopfsea.groupscheduler.dto.Schedule
 import uc.edu.klopfsea.groupscheduler.model.Event
@@ -35,7 +37,15 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        activity.let {
+            viewModel = ViewModelProviders.of(it!!).get(MainViewModel::class.java)
+        }
+        scheduleEventButton.setOnClickListener {
+            (activity as MainActivity).onSwipeTop()
+        }
+        planEventButton.setOnClickListener {
+            (activity as MainActivity).onSwipeLeft()
+        }
+        // TODO: 3/26/2021  have to create for new event and have to create a button to go back to main
     }
 }
-

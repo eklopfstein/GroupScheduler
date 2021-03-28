@@ -7,27 +7,36 @@ import android.view.MotionEvent
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import uc.edu.klopfsea.groupscheduler.model.Event
-import uc.edu.klopfsea.groupscheduler.ui.main.AddEvent
-import uc.edu.klopfsea.groupscheduler.ui.main.MainFragment
-import uc.edu.klopfsea.groupscheduler.ui.main.PlanEvent
-import uc.edu.klopfsea.groupscheduler.ui.main.ScheduleFragment
+import uc.edu.klopfsea.groupscheduler.ui.main.*
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var detector: GestureDetectorCompat
+    private lateinit var planEvent: PlanEvent
+    private lateinit var mainFragment: MainFragment
+    private lateinit var scheduleFragment: ScheduleFragment
+    private lateinit var activeFragment: Fragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
+        planEvent = PlanEvent.newInstance()
+        mainFragment = MainFragment.newInstance()
+        scheduleFragment = ScheduleFragment.newInstance()
+
+        val viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, MainFragment.newInstance())
+                    .replace(R.id.container, mainFragment)
                     .commitNow()
+            activeFragment = mainFragment
         }
         detector = GestureDetectorCompat(this, DiaryGestureListener())
     }
@@ -74,28 +83,39 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     super.onFling(downEvent, moveEvent, velocityX, velocityY)
                 }
-                }
+            }
         }
     }
 
     private fun onSwipeBottom() {
-        TODO("Not yet implemented")
+        //TODO("Not yet implemented")
     }
 
-    private fun onSwipeTop() {
-       /* supportFragmentManager.beginTransaction()
-                .replace(R.id.container, ScheduleFragment.newInstance())
-                .commitNow()*/
+    internal fun onSwipeTop() {
+        if (activeFragment == mainFragment || activeFragment == planEvent) {
+            supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, scheduleFragment)
+                    .commitNow()
+            activeFragment = scheduleFragment
+        }
     }
 
-    private fun onSwipeLeft() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container, PlanEvent.newInstance())
-            .commitNow()
+    internal fun onSwipeLeft() {
+        if (activeFragment == mainFragment || activeFragment == scheduleFragment) {
+            supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, planEvent)
+                    .commitNow()
+            activeFragment = planEvent
+        }
     }
 
-    private fun onSwipeRight() {
-
+    internal fun onSwipeRight() {
+        if (activeFragment == planEvent || activeFragment == scheduleFragment) {
+            supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, mainFragment)
+                    .commitNow()
+            activeFragment = mainFragment
+        }
     }
 
 }

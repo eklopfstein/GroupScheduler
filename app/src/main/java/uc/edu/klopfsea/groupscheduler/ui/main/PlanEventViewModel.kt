@@ -15,14 +15,14 @@ class PlanEventViewModel : ViewModel() {
     private var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     init {
-        fetchZipCodes("e")
+    //    fetchZipCodes("e")
         firestore = FirebaseFirestore.getInstance()
         firestore.firestoreSettings = FirebaseFirestoreSettings.Builder().build()
     }
 
-    fun fetchZipCodes(zipCode : String) {
+ /*   fun fetchZipCodes(zipCode : String) {
         addresses = addressService.fetchAddresses(zipCode)
-    }
+    }*/
 
     fun save(plannedEvent: PlannedEvent) {
         val document = firestore.collection("plannedevents").document()

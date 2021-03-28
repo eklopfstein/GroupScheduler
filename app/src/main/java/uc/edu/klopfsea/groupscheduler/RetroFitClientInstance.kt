@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetroFitClientInstance {
 
-    private var retrofit : Retrofit? = null
+   /* private var retrofit : Retrofit? = null
     private var BASE_URL = "https://api.zippopotam.us"
 
     val retrofitInstace : Retrofit?
@@ -17,5 +17,5 @@ object RetroFitClientInstance {
                     .build()
             }
             return retrofit
-        }
+        }*/
 }
