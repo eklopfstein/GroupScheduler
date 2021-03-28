@@ -21,6 +21,7 @@ class ScheduleFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.schedule_fragment, container, false)
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -32,31 +33,35 @@ class ScheduleFragment : Fragment() {
     }
     private fun saveSchedule() {
         var schedule = Schedule().apply {
-            if (radio_days.isChecked) {
-                if (monday.isChecked) {
-                    day = monday.text.toString()
+            radio_group.setOnCheckedChangeListener { group, checkedId ->
+                if (checkedId == R.id.radio_days) {
+                    when {
+                        monday.isChecked -> {
+                            day = monday.text.toString()
+                        }
+                        tuesday.isChecked -> {
+                            day = tuesday.text.toString()
+                        }
+                        wednesday.isChecked -> {
+                            day = wednesday.text.toString()
+                        }
+                        thursday.isChecked -> {
+                            day = thursday.text.toString()
+                        }
+                        friday.isChecked -> {
+                            day = friday.text.toString()
+                        }
+                        saturday.isChecked -> {
+                            day = saturday.text.toString()
+                        }
+                        sunday.isChecked -> {
+                            day = sunday.text.toString()
+                        }
+                    }
                 }
-                else if(tuesday.isChecked) {
-                    day = tuesday.text.toString()
+                if (checkedId == R.id.radio_date) {
+                    date = editTextDate.text.toString()
                 }
-                else if(wednesday.isChecked) {
-                    day = wednesday.text.toString()
-                }
-                else if(thursday.isChecked) {
-                    day = thursday.text.toString()
-                }
-                else if(friday.isChecked) {
-                    day = friday.text.toString()
-                }
-                else if(saturday.isChecked) {
-                    day = saturday.text.toString()
-                }
-                else if (sunday.isChecked) {
-                    day = sunday.text.toString()
-                }
-            }
-            if (radio_date.isChecked) {
-                date = editTextDate.text.toString()
             }
             time = editTextTime.text.toString()
         }

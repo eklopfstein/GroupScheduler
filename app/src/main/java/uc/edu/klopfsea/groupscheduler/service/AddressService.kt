@@ -10,7 +10,7 @@ import retrofit2.Response
 
 class AddressService {
 
-    fun fetchAddresses(zipCode : String) : MutableLiveData<ArrayList<Address>>{
+    /*fun fetchAddresses(zipCode : String) : MutableLiveData<ArrayList<Address>>{
         var _addresses = MutableLiveData<ArrayList<Address>>()
         val service = RetroFitClientInstance.retrofitInstace?.create(IAddressDAO::class.java)
         val call = service?.getAllAddress()
@@ -24,5 +24,5 @@ class AddressService {
             }
         })
         return _addresses
-    }
+    }*/
 }
