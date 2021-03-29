@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         detector = GestureDetectorCompat(this, DiaryGestureListener())
     }
 
+    //check if the screen was touched
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         return if (detector.onTouchEvent(event)) {
             true
@@ -49,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //check for swipes
     inner class DiaryGestureListener : GestureDetector.SimpleOnGestureListener() {
         private val SWIPE_THRESHOLD = 100
         private val SWIPE_VELOCITY_THRESHOLD = 100
@@ -61,10 +63,8 @@ class MainActivity : AppCompatActivity() {
                 // either left or right swipe
                 if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
                     if (diffX > 0) {
-                        //right swipe
                         this@MainActivity.onSwipeRight()
                     } else {
-                        //left swipe
                         this@MainActivity.onSwipeLeft()
                     }
                     true
