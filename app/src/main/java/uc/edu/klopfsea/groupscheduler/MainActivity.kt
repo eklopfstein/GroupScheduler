@@ -1,17 +1,13 @@
 package uc.edu.klopfsea.groupscheduler
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.GestureDetector
 import android.view.MotionEvent
-import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import uc.edu.klopfsea.groupscheduler.model.Event
+import kotlinx.android.synthetic.main.schedule_fragment.*
 import uc.edu.klopfsea.groupscheduler.ui.main.*
 
 
@@ -116,6 +112,10 @@ class MainActivity : AppCompatActivity() {
                     .commitNow()
             activeFragment = mainFragment
         }
+    }
+
+    internal fun onRadioButtonClicked(scheduleFragment: ScheduleFragment) {
+
     }
 
 }

@@ -1,5 +1,3 @@
 package uc.edu.klopfsea.groupscheduler.service
 
-class userGroupsService {
-
-}
+class userGroupsService
