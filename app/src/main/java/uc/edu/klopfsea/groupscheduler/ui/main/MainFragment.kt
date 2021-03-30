@@ -24,10 +24,6 @@ class MainFragment : Fragment() {
     val eventList = arrayListOf<Event>()
 
 
-    companion object {
-        fun newInstance() = MainFragment()
-    }
-
     private lateinit var viewModel: MainViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -47,5 +43,8 @@ class MainFragment : Fragment() {
             (activity as MainActivity).onSwipeLeft()
         }
         // TODO: 3/26/2021  have to create for new event and have to create a button to go back to main
+    }
+    companion object {
+        fun newInstance() = MainFragment()
     }
 }

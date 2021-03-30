@@ -2,6 +2,7 @@ package uc.edu.klopfsea.groupscheduler.ui.main
 
 import android.app.Activity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.Window
 import android.widget.*
@@ -20,9 +21,9 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
 
     var period = arrayListOf<String>()
     var periodSelected = 0
-    val days = arrayListOf<String>()
+    private val days = arrayListOf<String>()
     var timeSpecification = -1
-    val event = Event(isDateSet = false, isDaysSet = false, days = "", date = "", time = "", period = "AM", timeSpecification = "")
+    private val event = Event(isDateSet = false, isDaysSet = false, days = "", date = "", time = "", period = "AM", timeSpecification = "")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,8 +46,10 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
         btnAddEvent.setOnClickListener {
 
             val time = findViewById<EditText>(R.id.editTextTime).text.toString()
-            System.out.println(time)
-            System.out.println(timeSpecification)
+            println(time)
+            println(timeSpecification)
+            Log.d("Time", time)
+            Log.d("TimeSpecification", timeSpecification.toString())
             if ((time.isNotEmpty() && timeSpecification != -1) || timeSpecification == 2) {
                 if (findViewById<RadioButton>(R.id.radio_days).isChecked) {
                     if (days.isEmpty()) {
