@@ -1,6 +1,6 @@
 package uc.edu.klopfsea.groupscheduler
 
-import org.junit.Assert.assertNull
+import org.junit.Assert
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
@@ -64,9 +64,7 @@ class UserEventUnitTest {
             var duration: String = "0200"
             invalidUserEvent = UserEvent("13/13/2021", startTime, duration)
         } catch (ex: Exception) {
-            print(ex)
-        } finally {
-            assertNull(invalidUserEvent)
+            Assert.assertTrue(ex.message == "Invalid Event Date")
         }
     }
 
@@ -78,9 +76,7 @@ class UserEventUnitTest {
             var duration: String = "0200"
             invalidUserEvent = UserEvent("2/13/2021", startTime, duration)
         } catch (ex: Exception) {
-            print(ex)
-        } finally {
-            assertNull(invalidUserEvent)
+            Assert.assertTrue(ex.message == "Invalid Event Start Time")
         }
     }
 
@@ -92,9 +88,7 @@ class UserEventUnitTest {
             var duration: String = "2430"
             invalidUserEvent = UserEvent("2/13/2021", startTime, duration)
         } catch (ex: Exception) {
-            print(ex)
-        } finally {
-            assertNull(invalidUserEvent)
+            Assert.assertTrue(ex.message == "Invalid Event Duration")
         }
     }
 
@@ -115,9 +109,7 @@ class UserEventUnitTest {
             var duration: String = "0200"
             invalidUserEvent = UserEvent(frequency, "2, 13 2021", startTime, duration)
         } catch (ex: Exception) {
-            print(ex)
-        } finally {
-            assertNull(invalidUserEvent)
+            Assert.assertTrue(ex.message == "Invalid Event Frequency")
         }
     }
 

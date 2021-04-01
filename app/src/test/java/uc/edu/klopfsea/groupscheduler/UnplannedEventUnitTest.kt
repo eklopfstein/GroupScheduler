@@ -25,9 +25,7 @@ class UnplannedEventUnitTest {
             var duration: String = "2430"
             invalidUnplannedEvent = UnplannedEvent(name, duration)
         } catch (ex: Exception) {
-            print(ex)
-        } finally {
-            Assert.assertNull(invalidUnplannedEvent)
+            Assert.assertTrue(ex.message == "Invalid Event Duration")
         }
     }
 
@@ -38,9 +36,7 @@ class UnplannedEventUnitTest {
             var name: String = ""
             invalidUnplannedEvent = UnplannedEvent(name, duration)
         } catch (ex: Exception) {
-            print(ex)
-        } finally {
-            Assert.assertNull(invalidUnplannedEvent)
+            Assert.assertTrue(ex.message == "Invalid Event Name")
         }
     }
 

@@ -27,9 +27,7 @@ class PlannedEventUnitTest {
             var name: String = ""
             invalidPlannedEven = PlannedEvent(name, date, startTime)
         } catch (ex: Exception) {
-            print(ex)
-        } finally {
-            Assert.assertNull(invalidPlannedEven)
+            Assert.assertTrue(ex.message == "Invalid Event Name")
         }
     }
 
@@ -40,9 +38,7 @@ class PlannedEventUnitTest {
             var date: String = "13/13/2021"
             invalidPlannedEven = PlannedEvent(name, date, startTime)
         } catch (ex: Exception) {
-            print(ex)
-        } finally {
-            Assert.assertNull(invalidPlannedEven)
+            Assert.assertTrue(ex.message == "Invalid Event Date")
         }
     }
 
@@ -53,9 +49,7 @@ class PlannedEventUnitTest {
             var startTime: String = "2500"
             invalidPlannedEven = PlannedEvent(name, date, startTime)
         } catch (ex: Exception) {
-            print(ex)
-        } finally {
-            Assert.assertNull(invalidPlannedEven)
+            Assert.assertTrue(ex.message == "Invalid Event Start Time")
         }
     }
 }
