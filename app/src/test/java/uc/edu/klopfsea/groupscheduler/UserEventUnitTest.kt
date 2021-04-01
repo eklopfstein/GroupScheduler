@@ -30,20 +30,20 @@ class UserEventUnitTest {
         // Time are stored as Strings in military time
         var startTime: String = "1445"
         var duration: String = "0200"
-        userEventRecurring = UserEvent(frequency, "2/13/2021", startTime, duration)
+        userEventRecurring = UserEvent(frequency, "2021-02-13", startTime, duration)
 
         // Creates a user event that only occurs on one day
         // Time are stored as Strings in military time
         startTime = "1445"
         duration = "0200"
-        userEvent = UserEvent("2/13/2021", startTime, duration)
+        userEvent = UserEvent("2021-02-13", startTime, duration)
     }
 
     @Test
     fun userEventRecurring_maintainsState() {
         // Ensures object persists
         assertTrue(userEventRecurring.frequency!! == frequency)
-        assertTrue(userEventRecurring.startDate == "2/13/2021")
+        assertTrue(userEventRecurring.startDate == "2021-02-13")
         assertTrue(userEventRecurring.startTime == "1445")
         assertTrue(userEventRecurring.duration == "0200")
     }
@@ -51,7 +51,7 @@ class UserEventUnitTest {
     @Test
     fun userEventOneTime_maintainsState() {
         // Ensures object persists
-        assertTrue(userEvent.startDate == "2/13/2021")
+        assertTrue(userEvent.startDate == "2021-02-13")
         assertTrue(userEvent.startTime == "1445")
         assertTrue(userEvent.duration == "0200")
     }
@@ -62,7 +62,7 @@ class UserEventUnitTest {
         try {
             var startTime: String = "1445"
             var duration: String = "0200"
-            invalidUserEvent = UserEvent("13/13/2021", startTime, duration)
+            invalidUserEvent = UserEvent("2021-13-13", startTime, duration)
         } catch (ex: Exception) {
             Assert.assertTrue(ex.message == "Invalid Event Date")
         }
@@ -74,9 +74,9 @@ class UserEventUnitTest {
         try {
             var startTime: String = "2500"
             var duration: String = "0200"
-            invalidUserEvent = UserEvent("2/13/2021", startTime, duration)
+            invalidUserEvent = UserEvent("2021-02-13", startTime, duration)
         } catch (ex: Exception) {
-            Assert.assertTrue(ex.message == "Invalid Event Start Time")
+            Assert.assertTrue(ex.message == "Invalid Event Time")
         }
     }
 
@@ -86,9 +86,9 @@ class UserEventUnitTest {
         try {
             var startTime: String = "1445"
             var duration: String = "2430"
-            invalidUserEvent = UserEvent("2/13/2021", startTime, duration)
+            invalidUserEvent = UserEvent("2021-02-13", startTime, duration)
         } catch (ex: Exception) {
-            Assert.assertTrue(ex.message == "Invalid Event Duration")
+            Assert.assertTrue(ex.message == "Invalid Event Time")
         }
     }
 
@@ -107,7 +107,7 @@ class UserEventUnitTest {
             // Time are stored as Strings in military time
             var startTime: String = "1445"
             var duration: String = "0200"
-            invalidUserEvent = UserEvent(frequency, "2, 13 2021", startTime, duration)
+            invalidUserEvent = UserEvent(frequency, "2021-02-13", startTime, duration)
         } catch (ex: Exception) {
             Assert.assertTrue(ex.message == "Invalid Event Frequency")
         }

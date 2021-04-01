@@ -25,7 +25,7 @@ class UnplannedEventUnitTest {
             var duration: String = "2430"
             invalidUnplannedEvent = UnplannedEvent(name, duration)
         } catch (ex: Exception) {
-            Assert.assertTrue(ex.message == "Invalid Event Duration")
+            Assert.assertTrue(ex.message == "Invalid Event Time")
         }
     }
 
@@ -33,7 +33,7 @@ class UnplannedEventUnitTest {
     fun unplannedEvent_invalidName() {
         // Ensure events with invalid Names cannot be made
         try {
-            var name: String = ""
+            var name: String = " "
             invalidUnplannedEvent = UnplannedEvent(name, duration)
         } catch (ex: Exception) {
             Assert.assertTrue(ex.message == "Invalid Event Name")
