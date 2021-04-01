@@ -14,4 +14,9 @@ class UserEvent(
     constructor(frequency: Map<String, ArrayList<String>>, startDate: String, startTime: String, duration: String) : this(startDate, startTime, duration) {
         this.frequency = frequency
     }
+
+    init {
+        val eventVerifier: EventVerifier = EventVerifier()
+        eventVerifier.verifyEvent(this)
+    }
 }
