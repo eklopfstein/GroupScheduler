@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.schedule_fragment.*
 import uc.edu.klopfsea.groupscheduler.R
 import uc.edu.klopfsea.groupscheduler.dto.Schedule
@@ -16,7 +17,7 @@ class ScheduleFragment : Fragment() {
         fun newInstance() = ScheduleFragment()
     }
 
-    private lateinit var viewModel: ScheduleViewModel
+    private lateinit var viewModel: MainViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -26,7 +27,9 @@ class ScheduleFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ScheduleViewModel::class.java)
+        activity.let {
+            viewModel = ViewModelProviders.of(it!!).get(MainViewModel::class.java)
+        }
         btnAddEvent.setOnClickListener {
             saveSchedule()
         }

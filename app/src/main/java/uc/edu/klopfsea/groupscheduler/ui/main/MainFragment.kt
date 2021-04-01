@@ -42,7 +42,10 @@ class MainFragment : Fragment() {
         planEventButton.setOnClickListener {
             (activity as MainActivity).onSwipeLeft()
         }
-        // TODO: 3/26/2021  have to create for new event and have to create a button to go back to main
+        addEventPageButton.setOnClickListener {
+            (activity as MainActivity).onSwipeBottom()
+        }
+        // TODO: 3/26/2021  have to create for new button to go back to main
     }
     companion object {
         fun newInstance() = MainFragment()
