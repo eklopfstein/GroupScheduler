@@ -24,7 +24,7 @@ class PlanEventViewModel : ViewModel() {
         addresses = addressService.fetchAddresses(zipCode)
     }*/
 
-    fun save(plannedEvent: PlannedEvent) {
+    fun savePlanned(plannedEvent: PlannedEvent) {
         val document = firestore.collection("plannedevents").document()
         plannedEvent.plannedEventId = document.id
         val set = document.set(plannedEvent)
