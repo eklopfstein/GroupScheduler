@@ -3,6 +3,8 @@ package uc.edu.klopfsea.groupscheduler
 import android.os.Bundle
 import android.view.GestureDetector
 import android.view.MotionEvent
+import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
 import androidx.fragment.app.Fragment
@@ -17,7 +19,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var planEvent: PlanEvent
     private lateinit var mainFragment: MainFragment
     private lateinit var scheduleFragment: ScheduleFragment
+    private lateinit var newEvent: NewEvent
     private lateinit var activeFragment: Fragment
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         planEvent = PlanEvent.newInstance()
         mainFragment = MainFragment.newInstance()
         scheduleFragment = ScheduleFragment.newInstance()
+        newEvent = NewEvent.newInstance()
 
         val viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
@@ -83,12 +88,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun onSwipeBottom() {
-        //TODO("Not yet implemented")
+    internal fun onSwipeBottom() {
+        if (activeFragment == mainFragment || activeFragment == planEvent || activeFragment == scheduleFragment)
+        supportFragmentManager.beginTransaction()
+                .replace(R.id.container, newEvent)
+                .commitNow()
+        activeFragment = newEvent
     }
 
     internal fun onSwipeTop() {
-        if (activeFragment == mainFragment || activeFragment == planEvent) {
+        if (activeFragment == mainFragment || activeFragment == planEvent || activeFragment == newEvent) {
             supportFragmentManager.beginTransaction()
                     .replace(R.id.container, scheduleFragment)
                     .commitNow()
@@ -97,7 +106,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     internal fun onSwipeLeft() {
-        if (activeFragment == mainFragment || activeFragment == scheduleFragment) {
+        if (activeFragment == mainFragment || activeFragment == scheduleFragment || activeFragment == newEvent) {
             supportFragmentManager.beginTransaction()
                     .replace(R.id.container, planEvent)
                     .commitNow()
@@ -106,7 +115,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     internal fun onSwipeRight() {
-        if (activeFragment == planEvent || activeFragment == scheduleFragment) {
+        if (activeFragment == planEvent || activeFragment == scheduleFragment || activeFragment == newEvent) {
             supportFragmentManager.beginTransaction()
                     .replace(R.id.container, mainFragment)
                     .commitNow()
