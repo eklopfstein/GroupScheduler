@@ -34,7 +34,7 @@ class NewEvent : Fragment() {
     }
 
     private fun saveNewEvent() {
-        var newevent = uc.edu.klopfsea.groupscheduler.dto.NewEvent().apply {
+        var newevent = uc.edu.klopfsea.groupscheduler.dto.NewEventDto().apply {
             newEventName = eventNametxtbox.text.toString()
             hour = hours.text.toString().toInt()
             minute = minutes.text.toString().toInt()

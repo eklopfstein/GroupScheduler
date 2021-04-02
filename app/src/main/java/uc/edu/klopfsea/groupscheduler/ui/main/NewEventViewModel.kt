@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
-import uc.edu.klopfsea.groupscheduler.dto.NewEvent
+import uc.edu.klopfsea.groupscheduler.dto.NewEventDto
 
 class NewEventViewModel : ViewModel() {
 
@@ -15,7 +15,7 @@ class NewEventViewModel : ViewModel() {
         firestore.firestoreSettings = FirebaseFirestoreSettings.Builder().build()
     }
 
-    fun saveNew(newEvents: NewEvent) {
+    fun saveNew(newEvents: NewEventDto) {
         val document = firestore.collection("newevent").document()
         newEvents.newEventId = document.id
         val set = document.set(newEvents)
