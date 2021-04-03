@@ -3,14 +3,13 @@ package uc.edu.klopfsea.groupscheduler
 import android.os.Bundle
 import android.view.GestureDetector
 import android.view.MotionEvent
-import android.widget.ImageButton
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.schedule_fragment.*
 import uc.edu.klopfsea.groupscheduler.ui.main.*
+import kotlin.math.abs
 
 
 class MainActivity : AppCompatActivity() {
@@ -58,9 +57,9 @@ class MainActivity : AppCompatActivity() {
             var diffX = moveEvent?.x?.minus(downEvent!!.x) ?: 0.0F
             var diffY = moveEvent?.y?.minus(downEvent!!.y) ?: 0.0F
 
-            return if (Math.abs(diffX) > Math.abs(diffY)) {
+            return if (abs(diffX) > abs(diffY)) {
                 // either left or right swipe
-                if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
+                if (abs(diffX) > SWIPE_THRESHOLD && abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
                     if (diffX > 0) {
                         //right swipe
                         this@MainActivity.onSwipeRight()
@@ -74,7 +73,7 @@ class MainActivity : AppCompatActivity() {
                 }
             } else {
                 //either top or bottom swipe
-                if (Math.abs(diffY) > SWIPE_THRESHOLD && Math.abs(velocityY) > SWIPE_VELOCITY_THRESHOLD) {
+                if (abs(diffY) > SWIPE_THRESHOLD && abs(velocityY) > SWIPE_VELOCITY_THRESHOLD) {
                     if (diffY > 0) {
                         this@MainActivity.onSwipeTop()
                     } else {
@@ -90,9 +89,9 @@ class MainActivity : AppCompatActivity() {
 
     internal fun onSwipeBottom() {
         if (activeFragment == mainFragment || activeFragment == planEvent || activeFragment == scheduleFragment)
-        supportFragmentManager.beginTransaction()
-                .replace(R.id.container, newEvent)
-                .commitNow()
+            supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, newEvent)
+                    .commitNow()
         activeFragment = newEvent
     }
 

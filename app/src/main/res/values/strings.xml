@@ -8,7 +8,6 @@
     <string name="days2">Day(s)</string>
     <string name="times2">Times</string>
     <string name="todo">TODO</string>
-    <string name="month">Current Date</string>
     <string name="radiobtndays">Day(s)</string>
     <string name="radiobtndate">Date</string>
     <string name="radiobtnafter">After</string>
@@ -22,7 +21,6 @@
     <string name="checkboxfriday">F</string>
     <string name="checkboxsaturday">S</string>
     <string name="checkboxsunday">U</string>
-    <string name="period">Period</string>
     <string name="timePeriod" />
     <string name="notes" />
     <string name="dd_mm_yyyy">DD/MM/YYYY</string>
@@ -43,8 +41,4 @@
     <string name="city">City</string>
     <string name="state">State</string>
     <string name="zip">Zip</string>
-    <string-array name="period">
-        <item>AM</item>
-        <item>PM</item>
-    </string-array>
 </resources>

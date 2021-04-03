@@ -33,6 +33,7 @@ class ScheduleFragment : Fragment() {
             saveSchedule()
         }
     }
+
     private fun saveSchedule() {
         var schedule = Schedule().apply {
             radio_group.setOnCheckedChangeListener { group, checkedId ->

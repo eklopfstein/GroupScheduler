@@ -6,8 +6,6 @@ import android.util.Log
 import android.view.View
 import android.view.Window
 import android.widget.*
-import androidx.lifecycle.ViewModelProviders
-import kotlinx.android.synthetic.main.addevent_layout.*
 import uc.edu.klopfsea.groupscheduler.R
 import uc.edu.klopfsea.groupscheduler.model.Event
 import java.text.SimpleDateFormat
@@ -57,7 +55,7 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
                     } else {
                         event.isDaysSet = true
                         event.days = setDays().toString()
-                        System.out.println(event.days)
+                        println(event.days)
                         eventAddSuccess(time)
                     }
                 } else if (findViewById<RadioButton>(R.id.radio_date).isChecked) {
@@ -83,16 +81,16 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
         }
     }
 
-    fun eventAddSuccess(time: String) {
+    private fun eventAddSuccess(time: String) {
         event.time = time
         event.setTime(timeSpecification)
     }
 
-    fun isDateValid(dateString: String): Boolean {
+    private fun isDateValid(dateString: String): Boolean {
         try {
             val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
             val date = formatter.parse(dateString)
-            System.out.println(date)
+            println(date)
         } catch (e: Exception) {
             return false
         }
@@ -108,22 +106,11 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
         periodSelected = position
     }
 
-    fun setDays(): StringBuilder {
+    private fun setDays(): StringBuilder {
         var dayString = StringBuilder("")
-        if ("M" in days)
-            dayString.append("M,")
-        if ("T" in days)
-            dayString.append("T,")
-        if ("W" in days)
-            dayString.append("W,")
-        if ("R" in days)
-            dayString.append("R,")
-        if ("F" in days)
-            dayString.append("F,")
-        if ("S" in days)
-            dayString.append("S,")
-        if ("U" in days)
-            dayString.append("U,")
+        for (day in days) {
+            dayString.append("$day,")
+        }
         dayString.deleteCharAt(dayString.length - 1)
         return dayString
     }

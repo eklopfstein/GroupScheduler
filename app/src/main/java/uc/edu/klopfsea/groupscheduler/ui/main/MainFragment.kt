@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.main_fragment.*
 import uc.edu.klopfsea.groupscheduler.MainActivity
 import uc.edu.klopfsea.groupscheduler.R
-import uc.edu.klopfsea.groupscheduler.dto.Schedule
 import uc.edu.klopfsea.groupscheduler.model.Event
 
 
@@ -47,6 +46,7 @@ class MainFragment : Fragment() {
         }
         // TODO: 3/26/2021  have to create for new button to go back to main
     }
+
     companion object {
         fun newInstance() = MainFragment()
     }

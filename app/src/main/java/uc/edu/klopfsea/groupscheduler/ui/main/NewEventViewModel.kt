@@ -19,12 +19,12 @@ class NewEventViewModel : ViewModel() {
         val document = firestore.collection("newevent").document()
         newEvents.newEventId = document.id
         val set = document.set(newEvents)
-                set.addOnSuccessListener {
-                    Log.d("firebase", "document saved")
-                }
-                set.addOnFailureListener {
-                    Log.d("firebase","save failed")
-                }
+        set.addOnSuccessListener {
+            Log.d("firebase", "document saved")
+        }
+        set.addOnFailureListener {
+            Log.d("firebase", "save failed")
+        }
     }
 
 }

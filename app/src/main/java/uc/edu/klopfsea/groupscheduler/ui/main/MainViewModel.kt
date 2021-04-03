@@ -15,8 +15,8 @@ import uc.edu.klopfsea.groupscheduler.service.AddressService
  * connection and build the firebase firestore into our code
  */
 class MainViewModel : ViewModel() {
-    var addresses : MutableLiveData<ArrayList<Address>> = MutableLiveData<ArrayList<Address>>()
-    var addressService : AddressService = AddressService()
+    var addresses: MutableLiveData<ArrayList<Address>> = MutableLiveData<ArrayList<Address>>()
+    var addressService: AddressService = AddressService()
     private var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
     /*var addresses : MutableLiveData<ArrayList<Address>> = MutableLiveData<ArrayList<Address>>()
     var addressService : AddressService = AddressService()
@@ -34,7 +34,7 @@ class MainViewModel : ViewModel() {
         schedule.scheduleId = document.id
         val set = document.set(schedule)
         set.addOnSuccessListener {
-            Log.d("Firebase","Document Save Successful")
+            Log.d("Firebase", "Document Save Successful")
         }
         set.addOnFailureListener {
             Log.d("Firebase", "Save failure")
@@ -46,12 +46,13 @@ class MainViewModel : ViewModel() {
         plannedEvent.plannedEventId = document.id
         val set = document.set(plannedEvent)
         set.addOnSuccessListener {
-            Log.d("Firebase","Document Saved!")
+            Log.d("Firebase", "Document Saved!")
         }
         set.addOnFailureListener {
-            Log.d("Firebase","Save failed")
+            Log.d("Firebase", "Save failed")
         }
     }
+
     fun saveNew(newEvents: NewEventDto) {
         val document = firestore.collection("newevent").document()
         newEvents.newEventId = document.id
@@ -60,7 +61,7 @@ class MainViewModel : ViewModel() {
             Log.d("firebase", "document saved")
         }
         set.addOnFailureListener {
-            Log.d("firebase","save failed")
+            Log.d("firebase", "save failed")
         }
     }
 }

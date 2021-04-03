@@ -10,30 +10,30 @@ import uc.edu.klopfsea.groupscheduler.dto.PlannedEvent
 import uc.edu.klopfsea.groupscheduler.service.AddressService
 
 class PlanEventViewModel : ViewModel() {
-    var addresses : MutableLiveData<ArrayList<Address>> = MutableLiveData<ArrayList<Address>>()
-    var addressService : AddressService = AddressService()
+    var addresses: MutableLiveData<ArrayList<Address>> = MutableLiveData<ArrayList<Address>>()
+    var addressService: AddressService = AddressService()
     private var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     init {
-    //    fetchZipCodes("e")
+        //    fetchZipCodes("e")
         firestore = FirebaseFirestore.getInstance()
         firestore.firestoreSettings = FirebaseFirestoreSettings.Builder().build()
     }
 
- /*   fun fetchZipCodes(zipCode : String) {
-        addresses = addressService.fetchAddresses(zipCode)
-    }*/
+    /*   fun fetchZipCodes(zipCode : String) {
+           addresses = addressService.fetchAddresses(zipCode)
+       }*/
 
     fun savePlanned(plannedEvent: PlannedEvent) {
         val document = firestore.collection("plannedevents").document()
         plannedEvent.plannedEventId = document.id
         val set = document.set(plannedEvent)
-           set.addOnSuccessListener {
-                  Log.d("Firebase","Document Saved!")
-                }
-           set.addOnFailureListener {
-                    Log.d("Firebase","Save failed")
-                }
+        set.addOnSuccessListener {
+            Log.d("Firebase", "Document Saved!")
+        }
+        set.addOnFailureListener {
+            Log.d("Firebase", "Save failed")
+        }
     }
 
 }
