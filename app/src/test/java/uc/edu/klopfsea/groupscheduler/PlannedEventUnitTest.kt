@@ -6,48 +6,48 @@ import uc.edu.klopfsea.groupscheduler.Events.PlannedEvent
 
 class PlannedEventUnitTest {
 
-    var name: String = "Dinner"
-    var date: String = "2021-04-26"
-    var startTime: String = "1700"
-    var plannedEvent: PlannedEvent = PlannedEvent(name, date, startTime)
-    lateinit var invalidPlannedEven: PlannedEvent
+    private var NAME: String = "Dinner"
+    private var DATE: String = "2021-04-26"
+    private var START_TIME: String = "1700"
+    private var plannedEvent: PlannedEvent = PlannedEvent(NAME, DATE, START_TIME)
+    private lateinit var invalidPlannedEven: PlannedEvent
 
     @Test
-    fun plannedEvent_maintainsState() {
+    fun `planned event maintains state`() {
         // Ensures object persists
-        Assert.assertTrue(plannedEvent.name == name)
-        Assert.assertTrue(plannedEvent.date == date)
-        Assert.assertTrue(plannedEvent.startTime == startTime)
+        Assert.assertTrue(plannedEvent.name == NAME)
+        Assert.assertTrue(plannedEvent.date == DATE)
+        Assert.assertTrue(plannedEvent.startTime == START_TIME)
     }
 
     @Test
-    fun plannedEvent_invalidName() {
+    fun `planned event invalid name`() {
         // Ensure events with invalid Durations cannot be made
         try {
             var name: String = " "
-            invalidPlannedEven = PlannedEvent(name, date, startTime)
+            invalidPlannedEven = PlannedEvent(name, DATE, START_TIME)
         } catch (ex: Exception) {
             Assert.assertTrue(ex.message == "Invalid Event Name")
         }
     }
 
     @Test
-    fun plannedEvent_invalidDate() {
+    fun `planned event invalid date`() {
         // Ensure events with invalid dates cannot be made
         try {
             var date: String = "2021-13-26"
-            invalidPlannedEven = PlannedEvent(name, date, startTime)
+            invalidPlannedEven = PlannedEvent(NAME, date, START_TIME)
         } catch (ex: Exception) {
             Assert.assertTrue(ex.message == "Invalid Event Date")
         }
     }
 
     @Test
-    fun plannedEvent_invalidStartTime() {
+    fun `planned event invalid start time`() {
         // Ensure events with an invalid startTime cannot be made
         try {
             var startTime: String = "2500"
-            invalidPlannedEven = PlannedEvent(name, date, startTime)
+            invalidPlannedEven = PlannedEvent(NAME, DATE, startTime)
         } catch (ex: Exception) {
             Assert.assertTrue(ex.message == "Invalid Event Time")
         }

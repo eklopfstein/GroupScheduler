@@ -12,8 +12,8 @@ data class Event(
 ) {
     // property declared in class body
     var id = 0
-    var month = 0
-    var year = 0
+    private var month = 0
+    private var year = 0
 
     // Sets the time
     fun setTime(t: Int) {
