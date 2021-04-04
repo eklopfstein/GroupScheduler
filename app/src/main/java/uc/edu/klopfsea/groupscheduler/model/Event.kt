@@ -17,31 +17,28 @@ data class Event(
 
     // Sets the time
     fun setTime(t: Int) {
-        timeSpecification = if (t == 0)
-            "After $time $period"
-        else if (t == 1)
-            "Before $time $period"
-        else
-            "All Day"
+        timeSpecification = when (t) {
+            0 -> "After $time $period"
+            1 -> "Before $time $period"
+            else -> "All Day"
+        }
     }
 
     // formats output
     fun getFormatedDate(): String {
         var s = date.split('-')
-        var str = ""
+        var formattedOutput = ""
         month = s[1].toInt()
         year = s[0].toInt()
-        str += s[2]
+        formattedOutput += s[2]
         val d = s[2].toInt()
-        str += if (d == 1)
-            "st"
-        else if (d == 2)
-            "nd"
-        else if (d == 3)
-            "rd"
-        else
-            "th"
-        return str
+        formattedOutput += when (d) {
+            1 -> "st"
+            2 -> "nd"
+            3 -> "rd"
+            else -> "th"
+        }
+        return formattedOutput
     }
 
 }
