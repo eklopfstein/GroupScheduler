@@ -23,7 +23,7 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
     private val days = arrayListOf<String>()
     var timeSpecification = -1
     private val event = Event(isDateSet = false, isDaysSet = false, days = "", date = "", time = "", period = "AM", timeSpecification = "")
-
+    @Override
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -37,7 +37,7 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
         period.add("AM")
         period.add("PM")
 
-        //Set Dropdown list and access the spinner
+        // Set Dropdown list and access the spinner
         val adapter = ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,period)
         adapter.setDropDownViewResource(R.layout.spinner_dropdown)
         spinner.adapter = adapter
@@ -48,8 +48,8 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
 
             // converts the entered time to text and prints
             val time = findViewById<EditText>(R.id.editTextTime).text.toString()
-            System.out.println(time)
-            System.out.println(timeSpecification)
+            println(time)
+             println(timeSpecification)
             if ((time.isNotEmpty() && timeSpecification!=-1) || timeSpecification==2){
                 if (findViewById<RadioButton>(R.id.radio_days).isChecked){
                     // If no radio button checked in this radio group
@@ -60,7 +60,7 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
                     else{
                         event.isDaysSet=true
                         event.days=setDays().toString()
-                        System.out.println(event.days)
+                        println(event.days)
                         eventAddSuccess(time)
                     }
                 } else if (findViewById<RadioButton>(R.id.radio_date).isChecked) {
@@ -91,12 +91,12 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
     }
   
     // sets the time
-    fun eventAddSuccess(time: String){
+    private fun eventAddSuccess(time: String){
         event.time = time
         event.setTime(timeSpecification)
     }
     // formats and prints date
-    fun isDateValid(dateString: String): Boolean{
+    private fun isDateValid(dateString: String): Boolean{
         try{
             val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
             val date = formatter.parse(dateString)
@@ -107,12 +107,13 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
         return true
     }
 
-
+    @Override
     override fun onNothingSelected(parent: AdapterView<*>?) {
         TODO("Not yet implemented")
     }
 
     // retrieves the object from adapter
+    @Override
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         periodSelected = position
     }

@@ -11,7 +11,7 @@ import uc.edu.klopfsea.groupscheduler.R
 class MainFragment : Fragment() {
 
     private lateinit var viewModel: MainViewModel
-
+    @Override
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.main_fragment, container, false)
