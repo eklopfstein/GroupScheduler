@@ -16,32 +16,29 @@ data class Event(
     var year = 0
 
     // Sets the time
-    fun setTime(t: Int) {
-        timeSpecification = if (t == 0)
-            "After $time $period"
-        else if (t == 1)
-            "Before $time $period"
-        else
-            "All Day"
+    fun setTime(timeID: Int) {
+        timeSpecification = when (timeID) {
+            0 -> "After $time $period"
+            1 -> "Before $time $period"
+            else -> "All Day"
+        }
     }
 
     // formats output
-    fun getFormatedDate(): String {
-        var s = date.split('-')
-        var str = ""
-        month = s[1].toInt()
-        year = s[0].toInt()
-        str += s[2]
-        val d = s[2].toInt()
-        str += if (d == 1)
-            "st"
-        else if (d == 2)
-            "nd"
-        else if (d == 3)
-            "rd"
-        else
-            "th"
-        return str
+    fun getFormattedDate(): String {
+        val dateParts = date.split('-')
+        var formattedDate = ""
+        month = dateParts[1].toInt()
+        year = dateParts[0].toInt()
+        formattedDate += dateParts[2]
+        val datePart = dateParts[2].toInt()
+        formattedDate += when (datePart) {
+            1 -> "st"
+            2 -> "nd"
+            3 -> "rd"
+            else -> "th"
+        }
+        return formattedDate
     }
 
 }
