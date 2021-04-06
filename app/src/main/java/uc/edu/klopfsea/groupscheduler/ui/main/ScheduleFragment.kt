@@ -66,7 +66,19 @@ class ScheduleFragment : Fragment() {
                     date = editTextDate.text.toString()
                 }
             }
-            time = editTextTime.text.toString()
+            radio_group2.setOnCheckedChangeListener { group, checkedId ->
+                if (checkedId == R.id.radio_after) {
+                    val after = radio_after.text.toString()
+                    time = after + " " + editTextTime.text.toString()
+                }
+                if (checkedId == R.id.radio_before) {
+                    val before = radio_before.text.toString()
+                    time = before + " " + editTextTime.text.toString()
+                }
+                if (checkedId == R.id.radio_allday) {
+                    time = radio_allday.toString()
+                }
+            }
         }
         viewModel.save(schedule)
     }
