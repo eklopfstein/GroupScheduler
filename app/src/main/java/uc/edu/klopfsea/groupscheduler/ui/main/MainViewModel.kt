@@ -18,14 +18,13 @@ class MainViewModel : ViewModel() {
     var addresses: MutableLiveData<ArrayList<Address>> = MutableLiveData<ArrayList<Address>>()
     var addressService: AddressService = AddressService()
     private var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
-    /*var addresses : MutableLiveData<ArrayList<Address>> = MutableLiveData<ArrayList<Address>>()
-    var addressService : AddressService = AddressService()
 
     fun fetchZipCodes(zipCode : String) {
         addresses = addressService.fetchAddresses(zipCode)
-    }*/
+    }
 
     init {
+        fetchZipCodes("e")
         firestore.firestoreSettings = FirebaseFirestoreSettings.Builder().build()
     }
 

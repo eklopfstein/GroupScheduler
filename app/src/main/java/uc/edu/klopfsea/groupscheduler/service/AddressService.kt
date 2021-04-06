@@ -1,8 +1,16 @@
 package uc.edu.klopfsea.groupscheduler.service
 
+import androidx.lifecycle.MutableLiveData
+import retrofit2.Call
+import uc.edu.klopfsea.groupscheduler.RetroFitClientInstance
+import uc.edu.klopfsea.groupscheduler.dao.IAddressDAO
+import uc.edu.klopfsea.groupscheduler.dto.Address
+import retrofit2.Callback
+import retrofit2.Response
+
 class AddressService {
 
-    /*fun fetchAddresses(zipCode : String) : MutableLiveData<ArrayList<Address>>{
+    fun fetchAddresses(zipCode : String) : MutableLiveData<ArrayList<Address>>{
         var _addresses = MutableLiveData<ArrayList<Address>>()
         val service = RetroFitClientInstance.retrofitInstace?.create(IAddressDAO::class.java)
         val call = service?.getAllAddress()
@@ -16,5 +24,5 @@ class AddressService {
             }
         })
         return _addresses
-    }*/
+    }
 }
