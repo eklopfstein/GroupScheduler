@@ -65,43 +65,43 @@
                     android:layout_height="wrap_content"
                     android:text="@string/checkboxmonday"
                     android:enabled="false"
-                    android:onClick="onCheckboxClicked"/>
+                    />
                 <CheckBox android:id="@+id/tuesday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/checkboxtuesday"
                     android:enabled="false"
-                    android:onClick="onCheckboxClicked"/>
+                    />
                 <CheckBox android:id="@+id/wednesday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/checkboxwednesday"
                     android:enabled="false"
-                    android:onClick="onCheckboxClicked"/>
+                    />
                 <CheckBox android:id="@+id/thursday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/checkboxthursday"
                     android:enabled="false"
-                    android:onClick="onCheckboxClicked"/>
+                    />
                 <CheckBox android:id="@+id/friday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/checkboxfriday"
                     android:enabled="false"
-                    android:onClick="onCheckboxClicked"/>
+                    />
                 <CheckBox android:id="@+id/saturday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/checkboxsaturday"
                     android:enabled="false"
-                    android:onClick="onCheckboxClicked"/>
+                    />
                 <CheckBox android:id="@+id/sunday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/checkboxsunday"
                     android:enabled="false"
-                    android:onClick="onCheckboxClicked"/>
+                    />
             </LinearLayout>
 
             <!-- OR textview -->
