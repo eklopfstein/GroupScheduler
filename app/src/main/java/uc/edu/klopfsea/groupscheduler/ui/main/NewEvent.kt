@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.new_event_fragment.*
+import uc.edu.klopfsea.groupscheduler.MainActivity
 import uc.edu.klopfsea.groupscheduler.R
 
 class NewEvent : Fragment() {
@@ -27,7 +28,9 @@ class NewEvent : Fragment() {
         activity.let {
             viewModel = ViewModelProvider(it!!).get(MainViewModel::class.java)
         }
-
+        btnClose.setOnClickListener {
+            (activity as MainActivity).onSwipeRight()
+        }
         btnAddEvent.setOnClickListener {
             saveNewEvent()
         }
