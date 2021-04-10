@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.schedule_fragment.*
+import uc.edu.klopfsea.groupscheduler.MainActivity
 import uc.edu.klopfsea.groupscheduler.R
 import uc.edu.klopfsea.groupscheduler.dto.Schedule
 import java.lang.StringBuilder
@@ -31,6 +33,9 @@ class ScheduleFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         activity.let {
             viewModel = ViewModelProviders.of(it!!).get(MainViewModel::class.java)
+        }
+        btnClose.setOnClickListener {
+            (activity as MainActivity).onSwipeRight()
         }
         radio_days.setOnCheckedChangeListener { buttonView, isChecked ->
             monday.isEnabled = false
@@ -106,3 +111,4 @@ class ScheduleFragment : Fragment() {
         viewModel.save(schedule)
     }
 }
+
