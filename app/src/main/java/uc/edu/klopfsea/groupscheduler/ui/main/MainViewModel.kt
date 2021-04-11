@@ -15,12 +15,12 @@ import uc.edu.klopfsea.groupscheduler.service.AddressService
  * connection and build the firebase firestore into our code
  */
 class MainViewModel : ViewModel() {
-    var addresses: MutableLiveData<ArrayList<Address>> = MutableLiveData<ArrayList<Address>>()
+    var addresses: MutableLiveData<Address> = MutableLiveData<Address>()
     var addressService: AddressService = AddressService()
     private var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     fun fetchZipCodes(zipCode : String) {
-        addresses = addressService.fetchAddresses(zipCode)
+        addresses = addressService.fetchCityAndState(zipCode)
     }
 
     init {
