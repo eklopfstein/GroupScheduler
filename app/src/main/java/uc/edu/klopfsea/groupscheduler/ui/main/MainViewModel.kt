@@ -5,6 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
+import uc.edu.klopfsea.groupscheduler.Events.EventsContainer
+import uc.edu.klopfsea.groupscheduler.Events.UnplannedEvent
+import uc.edu.klopfsea.groupscheduler.Events.UserEvent
 import uc.edu.klopfsea.groupscheduler.dto.Address
 import uc.edu.klopfsea.groupscheduler.dto.NewEventDto
 import uc.edu.klopfsea.groupscheduler.dto.PlannedEvent
@@ -15,9 +18,13 @@ import uc.edu.klopfsea.groupscheduler.service.AddressService
  * connection and build the firebase firestore into our code
  */
 class MainViewModel : ViewModel() {
-    var addresses: MutableLiveData<ArrayList<Address>> = MutableLiveData<ArrayList<Address>>()
     var addressService: AddressService = AddressService()
+    lateinit var addresses:  MutableLiveData<ArrayList<Address>>
     private var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
+    private var plannedEvents: ArrayList<uc.edu.klopfsea.groupscheduler.Events.PlannedEvent> = ArrayList<uc.edu.klopfsea.groupscheduler.Events.PlannedEvent>()
+    private var unplannedEvents: ArrayList<UnplannedEvent> = ArrayList<UnplannedEvent>()
+    private var userEvents: ArrayList<UserEvent> = ArrayList<UserEvent>()
+    private var events: EventsContainer = EventsContainer(plannedEvents, unplannedEvents, userEvents)
 
     fun fetchZipCodes(zipCode : String) {
         addresses = addressService.fetchAddresses(zipCode)
