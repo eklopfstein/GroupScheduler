@@ -18,7 +18,7 @@ class EventListRecyclerAdapter(var context: Context, var eventList: MutableList<
         val btnDelete: ImageButton = view.findViewById(R.id.delete)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventListViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.single_event_layout, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.single_schedule_event_layout, parent, false)
         return EventListViewHolder(view)
     }
 

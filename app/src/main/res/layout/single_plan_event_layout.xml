@@ -10,13 +10,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:lines="2"
-        android:text="Name"/>
+        android:text="Days"/>
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="110dp"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:text="Time needed"
+        android:text="Time"
         android:layout_toRightOf="@+id/textView1"
         android:lines="2"/>
 
