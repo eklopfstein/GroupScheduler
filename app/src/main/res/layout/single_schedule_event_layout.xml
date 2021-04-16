@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:lines="2"
+        android:text="Name"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:layout_toRightOf="@+id/textView1"
+        android:lines="2"/>
+
+    <ImageButton
+        android:id="@+id/delete"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/todo"
+        android:background="#FFF"
+        android:layout_toRightOf="@+id/textView2"
+        android:src="@drawable/ic_button1" />
+
+</RelativeLayout>

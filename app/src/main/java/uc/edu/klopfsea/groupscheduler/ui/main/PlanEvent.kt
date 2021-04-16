@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.plan_event_fragment.*
+import uc.edu.klopfsea.groupscheduler.MainActivity
 import uc.edu.klopfsea.groupscheduler.R
+import uc.edu.klopfsea.groupscheduler.dto.Address
 import uc.edu.klopfsea.groupscheduler.dto.PlannedEvent
 
 class PlanEvent : Fragment() {
@@ -31,7 +33,6 @@ class PlanEvent : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-
         btnAddEvent.setOnClickListener {
             savePlannedEvent()
         }
@@ -82,10 +83,11 @@ class PlanEvent : Fragment() {
             eventName = planeventname.toString()
             eventDate = editTextDate.text.toString()
             plannedTime = editTextTime.text.toString()
-            notes = edtnotes.text.toString()
             address = edtAddress.text.toString()
             city = edtCity.toString()
             state = edtState.toString()
+            //addresses = editTextTextPostalAddress.setAdapter(context!!, ArrayAdapter<Address>())
+            notes = edtnotes.text.toString()
         }
         viewModel.savePlanned(plannedEvent)
     }
