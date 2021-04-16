@@ -18,20 +18,19 @@ import uc.edu.klopfsea.groupscheduler.service.AddressService
  * connection and build the firebase firestore into our code
  */
 class MainViewModel : ViewModel() {
+    var addresses: MutableLiveData<Address> = MutableLiveData<Address>()
     var addressService: AddressService = AddressService()
-    lateinit var addresses:  MutableLiveData<ArrayList<Address>>
     private var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
     private var plannedEvents: ArrayList<uc.edu.klopfsea.groupscheduler.Events.PlannedEvent> = ArrayList<uc.edu.klopfsea.groupscheduler.Events.PlannedEvent>()
     private var unplannedEvents: ArrayList<UnplannedEvent> = ArrayList<UnplannedEvent>()
     private var userEvents: ArrayList<UserEvent> = ArrayList<UserEvent>()
     private var events: EventsContainer = EventsContainer(plannedEvents, unplannedEvents, userEvents)
 
-    fun fetchZipCodes(zipCode : String) {
-        addresses = addressService.fetchAddresses(zipCode)
+    fun fetchCityAndState(zipCode: String) {
+        addresses = addressService.fetchCityAndState(zipCode)
     }
 
     init {
-        fetchZipCodes("e")
         firestore.firestoreSettings = FirebaseFirestoreSettings.Builder().build()
     }
 

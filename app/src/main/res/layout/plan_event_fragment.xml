@@ -201,9 +201,8 @@
             android:textSize="18dp"
             android:typeface="serif"
             android:visibility="visible" />
-
         <AutoCompleteTextView
-            android:id="@+id/editTextTextPostalAddress"
+            android:id="@+id/editTextPostalAddress"
             android:layout_width="138dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="70dp"
