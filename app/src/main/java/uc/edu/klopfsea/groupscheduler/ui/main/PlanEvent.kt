@@ -6,6 +6,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -38,54 +39,48 @@ class PlanEvent : Fragment() {
         }
 
 
-        edtZipCode.addTextChangedListener(object : TextWatcher {
+        editTextPostalAddress.addTextChangedListener(object : TextWatcher {
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                if (edtZipCode.text.length == 5) {
-                    viewModel.fetchCityAndState(edtZipCode.text.toString())
+                if (editTextPostalAddress.text.length == 5) {
+                    viewModel.fetchCityAndState(editTextPostalAddress.text.toString())
                     updateLocation()
                 }
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (edtZipCode.text.length == 5) {
-                    viewModel.fetchCityAndState(edtZipCode.text.toString())
+                if (editTextPostalAddress.text.length == 5) {
+                    viewModel.fetchCityAndState(editTextPostalAddress.text.toString())
                     updateLocation()
                 }
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                if (edtZipCode.text.length == 5) {
-                    viewModel.fetchCityAndState(edtZipCode.text.toString())
+                if (editTextPostalAddress.text.length == 5) {
+                    viewModel.fetchCityAndState(editTextPostalAddress.text.toString())
                     updateLocation()
                 }
             }
 
             fun updateLocation() {
                 viewModel.addresses.observe(viewLifecycleOwner, Observer {
-
-                        addresses ->
-                    edtCity.equals(addresses.location[0].city)
-
+                        addresses -> edtCityAndState.setAdapter(ArrayAdapter(context!!, R.layout.support_simple_spinner_dropdown_item, addresses.location))
                 })
-                viewModel.addresses.observe(viewLifecycleOwner, Observer {
-
-                        addresses ->
-                    edtState.equals(addresses.location[0].stateName)
-                })
+                viewModel.fetchCityAndState(editTextPostalAddress.text.toString())
             }
         })
     }
 
     private fun savePlannedEvent() {
+        var cityAndState: List<String> = edtCityAndState.text.toString().split(",")
         var plannedEvent = PlannedEvent()
         with(plannedEvent) {
             eventName = planeventname.toString()
             eventDate = editTextDate.text.toString()
             plannedTime = editTextTime.text.toString()
             address = edtAddress.text.toString()
-            city = edtCity.toString()
-            state = edtState.toString()
+            city = cityAndState[0]
+            state = cityAndState[1]
             //addresses = editTextTextPostalAddress.setAdapter(context!!, ArrayAdapter<Address>())
             notes = edtnotes.text.toString()
         }

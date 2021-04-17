@@ -41,4 +41,5 @@
     <string name="citystate">City, State</string>
     <string name="state">State</string>
     <string name="zip">Zip Code</string>
+    <string name="event_date">Event Date</string>
 </resources>

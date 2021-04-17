@@ -76,7 +76,7 @@
         android:layout_height="180dp"
         android:orientation="horizontal">
 
-    <TextView
+        <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
             android:layout_marginTop="140dp"
             android:fontFamily="serif"
             android:lineSpacingExtra="18sp"
-            android:text="@string/eventname"
+            android:text="@string/event_date"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="#090909"
@@ -201,7 +201,7 @@
             android:textSize="18dp"
             android:typeface="serif"
             android:visibility="visible" />
-        <AutoCompleteTextView
+        <EditText
             android:id="@+id/editTextPostalAddress"
             android:layout_width="138dp"
             android:layout_height="wrap_content"
@@ -233,8 +233,8 @@
             android:typeface="serif"
             android:visibility="visible" />
 
-        <EditText
-            android:id="@+id/edtCity"
+        <AutoCompleteTextView
+            android:id="@+id/edtCityAndState"
             android:layout_width="120dp"
             android:layout_height="35dp"
             android:layout_marginStart="70dp"

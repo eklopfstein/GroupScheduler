@@ -11,18 +11,18 @@ import uc.edu.klopfsea.groupscheduler.dto.Address
 class AddressService {
 
     fun fetchCityAndState(zipCode: String): MutableLiveData<Address> {
-        val zipCode = zipCode.replace("\\s".toRegex(), "")
+        val zipCode = zipCode.trim()
         var _addresses = MutableLiveData<Address>()
         val service = RetroFitClientInstance.retrofitInstace?.create(IAddressDAO::class.java)
         val call = service?.getLocation("https://api.zippopotam.us/us/$zipCode")
         call?.enqueue(object : Callback<Address> {
             override fun onFailure(call: Call<Address>, t: Throwable) {
-                println("here")
+                println("https://api.zippopotam.us/us/$zipCode")
                 print("Could not retrieve service response")
             }
 
             override fun onResponse(call: Call<Address>, response: Response<Address>) {
-                println("here")
+                println("hereres")
                 _addresses.value = response.body()
             }
         })

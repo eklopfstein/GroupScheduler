@@ -19,4 +19,10 @@ class Location(
         get() {
             return state
         }
+
+    override fun toString(): String {
+        return "$city, $stateName"
+    }
+
+
 }

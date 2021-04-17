@@ -66,10 +66,10 @@ class ScheduleFragment : Fragment() {
         var schedule = Schedule().apply {
 
             val checkedRadioButton1 = radio_group.checkedRadioButtonId
-            val after = radio_after.text.toString()
-            val before = radio_before.text.toString()
-            val allDay = radio_allday.text.toString()
-            val timeString = editTextTime.text.toString()
+            val after = radio_after.text.toString().trim()
+            val before = radio_before.text.toString().trim()
+            val allDay = radio_allday.text.toString().trim()
+            val timeString = editTextTime.text.toString().trim()
             //val newTime = timeString.toString()
             val afterString = "$after $timeString"
             val beforeString = "$before $timeString"

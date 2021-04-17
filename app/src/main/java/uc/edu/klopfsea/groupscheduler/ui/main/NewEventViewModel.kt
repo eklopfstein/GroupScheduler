@@ -8,10 +8,9 @@ import uc.edu.klopfsea.groupscheduler.dto.NewEventDto
 
 class NewEventViewModel : ViewModel() {
 
-    private lateinit var firestore: FirebaseFirestore
+    private var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     init {
-        firestore = FirebaseFirestore.getInstance()
         firestore.firestoreSettings = FirebaseFirestoreSettings.Builder().build()
     }
 
