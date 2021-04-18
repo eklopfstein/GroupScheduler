@@ -41,6 +41,7 @@ class PlanEvent : Fragment() {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         btnAddEvent.setOnClickListener {
             savePlannedEvent()
+            (activity as MainActivity).onSwipeRight()
         }
         btnClose.setOnClickListener {
             (activity as MainActivity).onSwipeRight()
