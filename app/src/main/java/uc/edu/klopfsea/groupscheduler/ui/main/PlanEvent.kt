@@ -11,6 +11,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.plan_event_fragment.*
+import kotlinx.android.synthetic.main.plan_event_fragment.btnAddEvent
+import kotlinx.android.synthetic.main.plan_event_fragment.btnClose
+import kotlinx.android.synthetic.main.plan_event_fragment.editTextDate
+import kotlinx.android.synthetic.main.plan_event_fragment.editTextTime
+import kotlinx.android.synthetic.main.schedule_fragment.*
 import uc.edu.klopfsea.groupscheduler.MainActivity
 import uc.edu.klopfsea.groupscheduler.R
 import uc.edu.klopfsea.groupscheduler.dto.Address
@@ -37,7 +42,9 @@ class PlanEvent : Fragment() {
         btnAddEvent.setOnClickListener {
             savePlannedEvent()
         }
-
+        btnClose.setOnClickListener {
+            (activity as MainActivity).onSwipeRight()
+        }
 
         editTextPostalAddress.addTextChangedListener(object : TextWatcher {
 
