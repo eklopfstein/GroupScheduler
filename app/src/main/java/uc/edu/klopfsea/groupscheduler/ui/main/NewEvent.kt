@@ -33,6 +33,7 @@ class NewEvent : Fragment() {
         }
         btnAddEvent.setOnClickListener {
             saveNewEvent()
+            (activity as MainActivity).onSwipeRight()
         }
     }
 
