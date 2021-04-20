@@ -47,6 +47,10 @@ class PlanEvent : Fragment() {
             (activity as MainActivity).onSwipeRight()
         }
 
+        btnClose.setOnClickListener {
+            (activity as MainActivity).onSwipeRight()
+        }
+
         editTextPostalAddress.addTextChangedListener(object : TextWatcher {
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {

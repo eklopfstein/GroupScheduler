@@ -13,8 +13,8 @@ import uc.edu.klopfsea.groupscheduler.model.Event
 
 class EventListRecyclerAdapter(var context: Context, var eventList: MutableList<Event>): RecyclerView.Adapter<EventListRecyclerAdapter.EventListViewHolder>() {
     class EventListViewHolder (view: View) : RecyclerView.ViewHolder(view) {
-        val txtDate: TextView = view.findViewById(R.id.textView1)
-        val txtTime: TextView = view.findViewById(R.id.textView2)
+        val txtDate: TextView = view.findViewById(R.id.Days)
+        val txtTime: TextView = view.findViewById(R.id.Time)
         val btnDelete: ImageButton = view.findViewById(R.id.delete)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventListViewHolder {
