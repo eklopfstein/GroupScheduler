@@ -17,6 +17,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.main_fragment.*
+import kotlinx.android.synthetic.main.new_event_fragment.*
+import kotlinx.android.synthetic.main.single_event_layout.*
 import uc.edu.klopfsea.groupscheduler.MainActivity
 import uc.edu.klopfsea.groupscheduler.R
 import uc.edu.klopfsea.groupscheduler.dto.NewEventDto
@@ -27,6 +29,7 @@ import uc.edu.klopfsea.groupscheduler.model.Event
 class ScheduleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 class PlannedEventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 class NewEventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+
 
 class MainFragment : Fragment() {
 
@@ -61,6 +64,7 @@ class MainFragment : Fragment() {
             (activity as MainActivity).onSwipeBottom()
         }
 
+
         val scheduleQuery = db.collection("schedule")
         val plannedQuery = db.collection("plannedevents")
         val newEventQuery = db.collection("newevent")
@@ -80,10 +84,13 @@ class MainFragment : Fragment() {
             ) {
                 val dayTextView: TextView = holder.itemView.findViewById(R.id.Days)
                 val timeTextView: TextView = holder.itemView.findViewById(R.id.Time)
-                val deleteBtn: ImageButton = holder.itemView.findViewById(R.id.delete)
+                val deleteScheduleBtn: ImageButton = holder.itemView.findViewById(R.id.delete)
 
                 dayTextView.text = model.day
                 timeTextView.text = model.time
+                deleteScheduleBtn.setOnClickListener {
+                    deleteSchedule(model)
+                }
             }
         }
 
@@ -98,9 +105,13 @@ class MainFragment : Fragment() {
             override fun onBindViewHolder(holder: PlannedEventViewHolder, position: Int, model: PlannedEvent) {
                 val plannedNameTV: TextView = holder.itemView.findViewById(R.id.lblName)
                 val plannedDateTV: TextView = holder.itemView.findViewById(R.id.lblDate)
+                var btnPlannedDelete: ImageButton = holder.itemView.findViewById(R.id.delete)
 
                 plannedNameTV.text = model.eventName
                 plannedDateTV.text = model.eventDate
+                btnPlannedDelete.setOnClickListener {
+                    deletePlannedEvent(model)
+                }
             }
 
         }
@@ -116,12 +127,15 @@ class MainFragment : Fragment() {
             override fun onBindViewHolder(holder: NewEventViewHolder, position: Int, model: NewEventDto) {
                 val newEventNameTV: TextView = holder.itemView.findViewById(R.id.lblNewEventName)
                 val timeNeededTV: TextView = holder.itemView.findViewById(R.id.lblTimeNeeded)
+                var imgDelete : ImageButton = holder.itemView.findViewById(R.id.delete)
 
                 val timeNeeded = model.hour.toString() + " " + model.minute.toString()
                 newEventNameTV.text = model.newEventName
                 timeNeededTV.text = timeNeeded
+                imgDelete.setOnClickListener {
+                    deleteNewEvent(model)
+                }
             }
-
         }
 
         scheduleEventsRecyclerView.adapter = scheduleAdapter
@@ -131,6 +145,18 @@ class MainFragment : Fragment() {
         eventsRecyclerView.adapter = newEventAdapter
         eventsRecyclerView.layoutManager = LinearLayoutManager(context)
 
+    }
+
+    private fun deleteSchedule(model: Schedule) {
+        viewModel.deleteSchedule(model)
+    }
+
+    private fun deletePlannedEvent(model: PlannedEvent) {
+        viewModel.deletePlanned(model)
+    }
+
+    private fun deleteNewEvent(model: NewEventDto) {
+        viewModel.deleteNew(model)
     }
 
     companion object {

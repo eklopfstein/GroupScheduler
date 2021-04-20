@@ -69,4 +69,42 @@ class MainViewModel : ViewModel() {
             Log.d("firebase", "save failed")
         }
     }
+
+    fun deleteNew(newEvents: NewEventDto) {
+        if(newEvents.newEventId != null) {
+            val document = firestore.collection("newevent").document(newEvents.newEventId)
+            val task = document.delete()
+            task.addOnSuccessListener {
+                Log.d("firebase", "document deleted")
+            }
+            task.addOnFailureListener {
+                Log.d("firebase", "document deleted")
+            }
+        }
+    }
+    fun deletePlanned(plannedEvent: PlannedEvent) {
+        if(plannedEvent.plannedEventId != null) {
+            val document = firestore.collection("plannedevents").document(plannedEvent.plannedEventId)
+            val task = document.delete()
+            task.addOnSuccessListener {
+                Log.d("firebase", "document deleted")
+            }
+            task.addOnFailureListener {
+                Log.d("firebase", "document deleted")
+            }
+        }
+    }
+    fun deleteSchedule(schedule: Schedule) {
+        if (schedule.scheduleId != null) {
+            val document = firestore.collection("schedule").document(schedule.scheduleId)
+            val task = document.delete()
+            task.addOnSuccessListener {
+                Log.d("firebase", "document deleted")
+            }
+            task.addOnFailureListener {
+                Log.d("firebase", "document deleted")
+            }
+        }
+    }
 }
+
