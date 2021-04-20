@@ -93,7 +93,6 @@ class PlanEvent : Fragment() {
             address = edtAddress.text.toString()
             city = cityAndState[0]
             state = cityAndState[1]
-            //addresses = editTextTextPostalAddress.setAdapter(context!!, ArrayAdapter<Address>())
             notes = edtnotes.text.toString()
         }
         viewModel.savePlanned(plannedEvent)
