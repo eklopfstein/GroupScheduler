@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:lines="2"
-        android:text="Days"/>
+        android:text="Days" />
 
     <TextView
         android:id="@+id/Time"
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:text="Time"
         android:layout_toRightOf="@+id/Days"
-        android:lines="2"/>
+        android:lines="2" />
 
     <ImageButton
         android:id="@+id/delete"

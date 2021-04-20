@@ -70,17 +70,17 @@ class MainFragment : Fragment() {
         val newEventQuery = db.collection("newevent")
 
         val scheduleOptions = FirestoreRecyclerOptions.Builder<Schedule>().setQuery(scheduleQuery, Schedule::class.java)
-            .setLifecycleOwner(this).build()
-        val scheduleAdapter = object: FirestoreRecyclerAdapter<Schedule, ScheduleViewHolder>(scheduleOptions) {
+                .setLifecycleOwner(this).build()
+        val scheduleAdapter = object : FirestoreRecyclerAdapter<Schedule, ScheduleViewHolder>(scheduleOptions) {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScheduleViewHolder {
-               val view = LayoutInflater.from(context).inflate(R.layout.single_plan_event_layout, parent, false)
+                val view = LayoutInflater.from(context).inflate(R.layout.single_plan_event_layout, parent, false)
                 return ScheduleViewHolder(view)
             }
 
             override fun onBindViewHolder(
-                holder: ScheduleViewHolder,
-                position: Int,
-                model: Schedule
+                    holder: ScheduleViewHolder,
+                    position: Int,
+                    model: Schedule
             ) {
                 val dayTextView: TextView = holder.itemView.findViewById(R.id.Days)
                 val timeTextView: TextView = holder.itemView.findViewById(R.id.Time)
@@ -96,7 +96,7 @@ class MainFragment : Fragment() {
 
         val plannedEventOptions = FirestoreRecyclerOptions.Builder<PlannedEvent>().setQuery(plannedQuery, PlannedEvent::class.java)
                 .setLifecycleOwner(this).build()
-        val plannedEventAdapter = object: FirestoreRecyclerAdapter<PlannedEvent, PlannedEventViewHolder>(plannedEventOptions) {
+        val plannedEventAdapter = object : FirestoreRecyclerAdapter<PlannedEvent, PlannedEventViewHolder>(plannedEventOptions) {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlannedEventViewHolder {
                 val view = LayoutInflater.from(context).inflate(R.layout.single_schedule_event_layout, parent, false)
                 return PlannedEventViewHolder(view)
@@ -118,7 +118,7 @@ class MainFragment : Fragment() {
 
         val newEventOptions = FirestoreRecyclerOptions.Builder<NewEventDto>().setQuery(newEventQuery, NewEventDto::class.java)
                 .setLifecycleOwner(this).build()
-        val newEventAdapter = object: FirestoreRecyclerAdapter<NewEventDto, NewEventViewHolder>(newEventOptions) {
+        val newEventAdapter = object : FirestoreRecyclerAdapter<NewEventDto, NewEventViewHolder>(newEventOptions) {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewEventViewHolder {
                 val view = LayoutInflater.from(context).inflate(R.layout.single_event_layout, parent, false)
                 return NewEventViewHolder(view)
@@ -127,7 +127,7 @@ class MainFragment : Fragment() {
             override fun onBindViewHolder(holder: NewEventViewHolder, position: Int, model: NewEventDto) {
                 val newEventNameTV: TextView = holder.itemView.findViewById(R.id.lblNewEventName)
                 val timeNeededTV: TextView = holder.itemView.findViewById(R.id.lblTimeNeeded)
-                var imgDelete : ImageButton = holder.itemView.findViewById(R.id.delete)
+                var imgDelete: ImageButton = holder.itemView.findViewById(R.id.delete)
 
                 val timeNeeded = model.hour.toString() + " " + model.minute.toString()
                 newEventNameTV.text = model.newEventName

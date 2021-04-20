@@ -99,7 +99,6 @@ class AddEvent : Activity(), AdapterView.OnItemSelectedListener {
 
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
-        TODO("Not yet implemented")
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {

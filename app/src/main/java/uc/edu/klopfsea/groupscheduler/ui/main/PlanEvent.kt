@@ -11,14 +11,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.plan_event_fragment.*
-import kotlinx.android.synthetic.main.plan_event_fragment.btnAddEvent
-import kotlinx.android.synthetic.main.plan_event_fragment.btnClose
-import kotlinx.android.synthetic.main.plan_event_fragment.editTextDate
-import kotlinx.android.synthetic.main.plan_event_fragment.editTextTime
-import kotlinx.android.synthetic.main.schedule_fragment.*
 import uc.edu.klopfsea.groupscheduler.MainActivity
 import uc.edu.klopfsea.groupscheduler.R
-import uc.edu.klopfsea.groupscheduler.dto.Address
 import uc.edu.klopfsea.groupscheduler.dto.PlannedEvent
 
 class PlanEvent : Fragment() {
@@ -75,8 +69,8 @@ class PlanEvent : Fragment() {
             }
 
             fun updateLocation() {
-                viewModel.addresses.observe(viewLifecycleOwner, Observer {
-                        addresses -> edtCityAndState.setAdapter(ArrayAdapter(context!!, R.layout.support_simple_spinner_dropdown_item, addresses.location))
+                viewModel.addresses.observe(viewLifecycleOwner, Observer { addresses ->
+                    edtCityAndState.setAdapter(ArrayAdapter(context!!, R.layout.support_simple_spinner_dropdown_item, addresses.location))
                 })
                 viewModel.fetchCityAndState(editTextPostalAddress.text.toString())
             }
@@ -87,13 +81,13 @@ class PlanEvent : Fragment() {
         var cityAndState: List<String> = edtCityAndState.text.toString().split(",")
         var plannedEvent = PlannedEvent()
         with(plannedEvent) {
-            eventName = planeventname.toString()
-            eventDate = editTextDate.text.toString()
-            plannedTime = editTextTime.text.toString()
-            address = edtAddress.text.toString()
+            eventName = planeventname.toString().trim()
+            eventDate = editTextDate.text.toString().trim()
+            plannedTime = editTextTime.text.toString().trim()
+            address = edtAddress.text.toString().trim()
             city = cityAndState[0]
             state = cityAndState[1]
-            notes = edtnotes.text.toString()
+            notes = edtnotes.text.toString().trim()
         }
         viewModel.savePlanned(plannedEvent)
     }

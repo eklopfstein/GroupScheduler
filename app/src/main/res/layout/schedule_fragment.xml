@@ -25,7 +25,7 @@
             android:textColor="#090909"
             android:padding="15dp"
             android:typeface="serif"
-            android:visibility="visible"/>
+            android:visibility="visible" />
 
         <!-- close imagebutton -->
         <ImageButton
@@ -36,8 +36,9 @@
             android:paddingRight="15dp"
             android:background="#c8c8c8"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"/>
+            android:layout_centerVertical="true" />
     </RelativeLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,60 +49,66 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <RadioButton
                 android:id="@+id/radio_days"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/radiobtndays"
-                />
+                android:text="@string/radiobtndays" />
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <!-- checkboxes for days -->
-                <CheckBox android:id="@+id/monday"
+                <CheckBox
+                    android:id="@+id/monday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/checkboxmonday"
-                    android:enabled="false"
-                    />
-                <CheckBox android:id="@+id/tuesday"
+                    android:enabled="false" />
+
+                <CheckBox
+                    android:id="@+id/tuesday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/checkboxtuesday"
-                    android:enabled="false"
-                    />
-                <CheckBox android:id="@+id/wednesday"
+                    android:enabled="false" />
+
+                <CheckBox
+                    android:id="@+id/wednesday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/checkboxwednesday"
-                    android:enabled="false"
-                    />
-                <CheckBox android:id="@+id/thursday"
+                    android:enabled="false" />
+
+                <CheckBox
+                    android:id="@+id/thursday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/checkboxthursday"
-                    android:enabled="false"
-                    />
-                <CheckBox android:id="@+id/friday"
+                    android:enabled="false" />
+
+                <CheckBox
+                    android:id="@+id/friday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/checkboxfriday"
-                    android:enabled="false"
-                    />
-                <CheckBox android:id="@+id/saturday"
+                    android:enabled="false" />
+
+                <CheckBox
+                    android:id="@+id/saturday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/checkboxsaturday"
-                    android:enabled="false"
-                    />
-                <CheckBox android:id="@+id/sunday"
+                    android:enabled="false" />
+
+                <CheckBox
+                    android:id="@+id/sunday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/checkboxsunday"
-                    android:enabled="false"
-                    />
+                    android:enabled="false" />
             </LinearLayout>
 
             <!-- OR textview -->
@@ -121,8 +128,7 @@
                 android:id="@+id/radio_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/radiobtndate"
-                />
+                android:text="@string/radiobtndate" />
 
             <!-- EditText to enter date -->
             <EditText
@@ -156,26 +162,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <RadioButton
                 android:id="@+id/radio_after"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/radiobtnafter"
-                />
+                android:text="@string/radiobtnafter" />
+
             <RadioButton
                 android:id="@+id/radio_before"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/radiobtnbefore"
-                />
+                android:text="@string/radiobtnbefore" />
+
             <RadioButton
                 android:id="@+id/radio_allday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/radiobtnallday"
-                />
+                android:text="@string/radiobtnallday" />
         </RadioGroup>
     </LinearLayout>
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"

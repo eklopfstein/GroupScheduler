@@ -17,12 +17,10 @@ class AddressService {
         val call = service?.getLocation("https://api.zippopotam.us/us/$zipCode")
         call?.enqueue(object : Callback<Address> {
             override fun onFailure(call: Call<Address>, t: Throwable) {
-                println("https://api.zippopotam.us/us/$zipCode")
                 print("Could not retrieve service response")
             }
 
             override fun onResponse(call: Call<Address>, response: Response<Address>) {
-                println("hereres")
                 _addresses.value = response.body()
             }
         })

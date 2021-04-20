@@ -4,15 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.schedule_fragment.*
 import uc.edu.klopfsea.groupscheduler.MainActivity
 import uc.edu.klopfsea.groupscheduler.R
 import uc.edu.klopfsea.groupscheduler.dto.Schedule
-import java.lang.StringBuilder
 
 class ScheduleFragment : Fragment() {
     private val checkedRadioButton1 = radio_group?.checkedRadioButtonId
@@ -63,7 +60,7 @@ class ScheduleFragment : Fragment() {
         }
     }
 
-    internal fun saveSchedule() {
+    private fun saveSchedule() {
         var schedule = Schedule().apply {
 
             val checkedRadioButton1 = radio_group.checkedRadioButtonId
@@ -71,7 +68,6 @@ class ScheduleFragment : Fragment() {
             val before = radio_before.text.toString().trim()
             val allDay = radio_allday.text.toString().trim()
             val timeString = editTextTime.text.toString().trim()
-            //val newTime = timeString.toString()
             val afterString = "$after $timeString"
             val beforeString = "$before $timeString"
             val allString = "$allDay"
@@ -101,8 +97,7 @@ class ScheduleFragment : Fragment() {
 
             date = editTextDate.text.toString()
 
-            val checkedRadioButton2 = radio_group2.checkedRadioButtonId
-            when (checkedRadioButton2) {
+            when (radio_group2.checkedRadioButtonId) {
                 R.id.radio_after -> time = afterString
                 R.id.radio_before -> time = beforeString
                 R.id.radio_allday -> time = allString

@@ -16,6 +16,7 @@ class UserEvent(
     }
 
     init {
+        // verify events on creation
         val eventVerifier: EventVerifier = EventVerifier()
         eventVerifier.verifyEvent(this)
     }

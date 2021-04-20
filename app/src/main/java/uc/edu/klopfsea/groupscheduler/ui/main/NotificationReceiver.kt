@@ -16,7 +16,7 @@ import uc.edu.klopfsea.groupscheduler.R
 class NotificationReceiver : BroadcastReceiver() {
 
     private var context: Context? = null
-    private lateinit var channel : NotificationChannel
+    private lateinit var channel: NotificationChannel
     private var isChannelCreated = false
     private val EVENT_CHANNEL_ID = "EVENT_CHANNEL_ID"
 
@@ -49,7 +49,7 @@ class NotificationReceiver : BroadcastReceiver() {
             Intent.ACTION_POWER_CONNECTED -> {
                 notifyUser()
             }
-            Intent.ACTION_POWER_DISCONNECTED ->  {
+            Intent.ACTION_POWER_DISCONNECTED -> {
 
             }
         }
@@ -60,9 +60,9 @@ class NotificationReceiver : BroadcastReceiver() {
             createChannel()
         }
         val mBuilder = NotificationCompat.Builder(context!!, EVENT_CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_launcher_foreground)
-            .setContentTitle("Check your schedule for today!")
-            .setContentText("Arrange your events accordingly!")
+                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setContentTitle("Check your schedule for today!")
+                .setContentText("Arrange your events accordingly!")
         val notification = mBuilder.build()
         val notificationManagerCompat = NotificationManagerCompat.from(context!!)
         notificationManagerCompat.notify(1, notification)

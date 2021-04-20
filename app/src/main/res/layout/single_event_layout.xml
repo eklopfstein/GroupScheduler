@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:lines="2"
-        android:text="Name"/>
+        android:text="Name" />
 
     <TextView
         android:id="@+id/lblTimeNeeded"
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:text="Time needed"
         android:layout_toRightOf="@+id/lblNewEventName"
-        android:lines="2"/>
+        android:lines="2" />
 
     <ImageButton
         android:id="@+id/delete"

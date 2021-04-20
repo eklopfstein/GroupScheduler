@@ -11,12 +11,13 @@ import androidx.recyclerview.widget.RecyclerView
 import uc.edu.klopfsea.groupscheduler.R
 import uc.edu.klopfsea.groupscheduler.model.Event
 
-class EventListRecyclerAdapter(var context: Context, var eventList: MutableList<Event>): RecyclerView.Adapter<EventListRecyclerAdapter.EventListViewHolder>() {
-    class EventListViewHolder (view: View) : RecyclerView.ViewHolder(view) {
+class EventListRecyclerAdapter(var context: Context, var eventList: MutableList<Event>) : RecyclerView.Adapter<EventListRecyclerAdapter.EventListViewHolder>() {
+    class EventListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val txtDate: TextView = view.findViewById(R.id.Days)
         val txtTime: TextView = view.findViewById(R.id.Time)
         val btnDelete: ImageButton = view.findViewById(R.id.delete)
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventListViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.single_schedule_event_layout, parent, false)
         return EventListViewHolder(view)
@@ -29,14 +30,13 @@ class EventListRecyclerAdapter(var context: Context, var eventList: MutableList<
 
     override fun onBindViewHolder(holder: EventListViewHolder, position: Int) {
         val event = eventList[position]
-        if (event.isDateSet){
-//            holder.txtDate.text = event.getFormatedDate() toget only the date without month and year, this can be used
+        if (event.isDateSet) {
             holder.txtDate.text = event.date
-        }else{
+        } else {
             holder.txtDate.text = event.days
         }
         holder.txtTime.text = event.timeSpecification
-        holder.btnDelete.setOnClickListener{
+        holder.btnDelete.setOnClickListener {
             eventList.removeAt(position)
             (context as Activity).recreate()
             notifyDataSetChanged()

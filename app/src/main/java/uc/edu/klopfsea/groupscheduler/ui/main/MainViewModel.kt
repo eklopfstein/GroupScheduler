@@ -26,6 +26,9 @@ class MainViewModel : ViewModel() {
     private var userEvents: ArrayList<UserEvent> = ArrayList<UserEvent>()
     private var events: EventsContainer = EventsContainer(plannedEvents, unplannedEvents, userEvents)
 
+    /***
+     * get city and state from user given zip code
+     */
     fun fetchCityAndState(zipCode: String) {
         addresses = addressService.fetchCityAndState(zipCode)
     }
@@ -71,7 +74,7 @@ class MainViewModel : ViewModel() {
     }
 
     fun deleteNew(newEvents: NewEventDto) {
-        if(newEvents.newEventId != null) {
+        if (newEvents.newEventId != null) {
             val document = firestore.collection("newevent").document(newEvents.newEventId)
             val task = document.delete()
             task.addOnSuccessListener {
@@ -82,8 +85,9 @@ class MainViewModel : ViewModel() {
             }
         }
     }
+
     fun deletePlanned(plannedEvent: PlannedEvent) {
-        if(plannedEvent.plannedEventId != null) {
+        if (plannedEvent.plannedEventId != null) {
             val document = firestore.collection("plannedevents").document(plannedEvent.plannedEventId)
             val task = document.delete()
             task.addOnSuccessListener {
@@ -94,6 +98,7 @@ class MainViewModel : ViewModel() {
             }
         }
     }
+
     fun deleteSchedule(schedule: Schedule) {
         if (schedule.scheduleId != null) {
             val document = firestore.collection("schedule").document(schedule.scheduleId)

@@ -122,8 +122,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    internal fun onRadioButtonClicked(scheduleFragment: ScheduleFragment) {
-
-    }
-
 }
