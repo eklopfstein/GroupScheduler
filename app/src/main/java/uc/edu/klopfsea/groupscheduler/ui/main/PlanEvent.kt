@@ -38,6 +38,9 @@ class PlanEvent : Fragment() {
             savePlannedEvent()
         }
 
+        btnClose.setOnClickListener {
+            (activity as MainActivity).onSwipeRight()
+        }
 
         editTextPostalAddress.addTextChangedListener(object : TextWatcher {
 
