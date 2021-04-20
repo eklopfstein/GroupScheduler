@@ -59,6 +59,7 @@ class ScheduleFragment : Fragment() {
         }
         btnAddEvent.setOnClickListener {
             saveSchedule()
+            (activity as MainActivity).onSwipeRight()
         }
     }
 
