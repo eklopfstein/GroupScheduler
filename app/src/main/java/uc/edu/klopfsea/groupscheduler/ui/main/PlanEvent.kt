@@ -81,7 +81,7 @@ class PlanEvent : Fragment() {
         var cityAndState: List<String> = edtCityAndState.text.toString().split(",")
         var plannedEvent = PlannedEvent()
         with(plannedEvent) {
-            eventName = planeventname.toString().trim()
+            eventName = planeventname.text.toString().trim()
             eventDate = editTextDate.text.toString().trim()
             plannedTime = editTextTime.text.toString().trim()
             address = edtAddress.text.toString().trim()

@@ -61,7 +61,7 @@
             android:typeface="serif"
             android:visibility="visible" />
 
-        <Spinner
+        <EditText
             android:id="@+id/planeventname"
             android:layout_width="120dp"
             android:layout_height="35dp"
